@@ -42,9 +42,9 @@ class RulesController extends AuthakeAppController {
 
 
     function add() {
-        if (!empty($this->data)) {
+        if (!empty($this->request->data)) {
             $this->Rule->create();
-            if ($this->Rule->save($this->data)) {
+            if ($this->Rule->save($this->request->data)) {
                 $this->Session->setFlash(__('The Rule has been saved'), 'success');
                 $this->redirect(array('action'=>'index'));
             } else {
@@ -61,7 +61,7 @@ class RulesController extends AuthakeAppController {
     }
 
     function edit($id = null) {//$this->Rule->getEnumValues('permission'));
-        if (!$id && empty($this->data)) {
+        if (!$id && empty($this->request->data)) {
             $this->Session->setFlash(__('Invalid Rule'), 'error');
             $this->redirect(array('action'=>'index'));
         }
@@ -69,16 +69,16 @@ class RulesController extends AuthakeAppController {
             $this->Session->setFlash(__('Impossible to edit this rule!'), 'warning');
             $this->redirect(array('action'=>'index'));
         }
-        if (!empty($this->data)) {
-            if ($this->Rule->save($this->data)) {
+        if (!empty($this->request->data)) {
+            if ($this->Rule->save($this->request->data)) {
                 $this->Session->setFlash(__('The Rule has been saved'), 'success');
                 $this->redirect(array('action'=>'index'));
             } else {
                 $this->Session->setFlash(__('The Rule could not be saved. Please, try again.'), 'warning');
             }
         }
-        if (empty($this->data)) {
-            $this->data = $this->Rule->read(null, $id);
+        if (empty($this->request->data)) {
+            $this->request->data = $this->Rule->read(null, $id);
         }
         
         // fix groups dropdown menu
