@@ -53,5 +53,11 @@
 		</div>
         <footer></footer>
 	</div>
+	<?php
+	echo $this->Html->script('Authake.jquery-latest');
+	echo $this->Html->script('Authake.custom');
+	echo $this->Html->script('Authake.bootstrap.min');
+	echo $this->Html->script('Authake.html5shiv');
+	?>
 </body>
 </html>
