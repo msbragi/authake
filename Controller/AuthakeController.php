@@ -23,9 +23,11 @@
 class AuthakeController extends AuthakeAppController {
 
     var $uses = array();    // needed as we don't have any model
-//    var $layout = 'authake';
+    var $layout = 'authake';
 
-    function index() {}
-}
+    function index() 
+    {
+        $this->set('title_for_layout', 'Authake User & Group Management');    
+    }
 
 ?>
