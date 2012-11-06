@@ -62,6 +62,6 @@ Install
         }
         ?>
 
-6. Use **username:** admin **password:** admin to login
+6. Use username: **admin** password: **admin** to login
 
     For any question mtkocak@gmail.com
