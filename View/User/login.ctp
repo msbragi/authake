@@ -1,7 +1,7 @@
 <div id="authake">
 <?php echo $this->element('gotohomepage'); ?>
 <div class="login form">
-<?php echo $this->Form->create(null, array('action'=>'login'));?> 
+<?php echo $this->Form->create(null, array('url' => array('controller' => 'user', 'action'=>'login')));?> 
 <fieldset>
     <?php
         echo $this->Form->input('login', array('label'=>__('Login'), 'size'=>'14'));
