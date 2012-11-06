@@ -24,20 +24,17 @@
  * @license			http://www.opensource.org/licenses/mit-license.php The MIT License
  */
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
 <head>
 	<title>
-		<?php __('CakePHP: the rapid development php framework:'); ?>
+		<?php echo __('Authake User & Group Management'); ?>
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
 		echo $this->Html->charset();
 		echo $this->Html->meta('icon');
-
-        echo $this->Html->css('/authake/css/cake.generic');
-        echo $this->Html->css('/authake/css/flashhelper');
-        echo $this->Html->css('/authake/css/authake');
+        echo $this->Html->css('/authake/css/bootstrap.min');
+        echo $this->Html->css('/authake/css/custom');
 	echo $scripts_for_layout;
 	?>
 </head>
