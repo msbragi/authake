@@ -1,6 +1,16 @@
 v2.2.3 (Nov 6, 2012) Mutlu Tevfik Kocak
 
     * Continuous login failure issue solved
+    * New markdowns added
+    * Enum type of rule permissions are removed
+    * Schema file generated
+    * New markdown files added
+
+v2.1 (Jan, 31 2012)
+    * fixed: this->rquest->data issues
+    * login using email
+    * views thanks to Lonardo Pedretti
+    * fixed: getcontrollers
 
 v2.0 (Oct 27, 2011) Mutlu Tevfik Kocak
 
