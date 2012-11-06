@@ -33,9 +33,9 @@ class FilterComponent extends Component {
     function process($controller){
         $this->_prepareFilter($controller);
         $ret = array();
-        if(isset($controller->data)){
+        if(isset($controller->request->data)){
             //Loop for models
-            foreach($controller->data as $key=>$value){
+            foreach($controller->request->data as $key=>$value){
                 if(isset($controller->{$key})){
                     $columns = $controller->{$key}->getColumnTypes();
                     foreach($value as $k=>$v){
@@ -68,7 +68,7 @@ class FilterComponent extends Component {
             foreach($controller->data as $model=>$fields){
                 foreach($fields as $key=>$field){
                     if($field == ''){
-                        unset($controller->data[$model][$key]);
+                        unset($controller->request->data[$model][$key]);
                     }
                 }
             }
