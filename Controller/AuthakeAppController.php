@@ -21,8 +21,9 @@
 App::uses('AppController', 'Controller');
 //App::uses('PagesController', 'Controller');
 class AuthakeAppController extends AppController {
+    
     var $helpers = array('Time', 'Authake.Htmlbis');
-
+    
     function __makePassword($password1, $password2) {
         if ($password1 != $password2) {
             $this->Session->setFlash(__('The two passwords do not match!'), 'error');
@@ -34,5 +35,6 @@ class AuthakeAppController extends AppController {
     
     function beforeFilter(){
         parent::beforeFilter();
+        //$this->layout = 'authake';
     }
 }
