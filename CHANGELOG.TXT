@@ -1,3 +1,7 @@
+v2.2.3 (Nov 6, 2012) Mutlu Tevfik Kocak
+
+    * Continuous login failure issue solved
+
 v2.0 (Oct 27, 2011) Mutlu Tevfik Kocak
 
 THIS VERSION RUNS ONLY WITH CAKEPHP 2.0
