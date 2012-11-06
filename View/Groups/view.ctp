@@ -29,7 +29,7 @@
         echo "<div style=\"float: left; padding: 0 0.7em; margin: 0.5em; border-left: 1px solid #CCC;\"><h4>{$controller}</h4>";
         echo "<ul>";
         foreach($ruleslist as $k => $rule) {
-            if ($rule['permission'] == "Allow")
+            if ($rule['permission'] == true)
                 echo '<li class="icon accept"><p style="color: green">'.$rule['action'];
             else
                 echo '<li class="icon delete"><p style="color: red">'.$rule['action'];

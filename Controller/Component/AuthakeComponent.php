@@ -258,7 +258,8 @@ class AuthakeComponent extends Component {
         foreach ($rules as $data) {
             if (preg_match("/^({$data['Rule']['action']})$/i", $url, $matches)) {
                 $allow = $data['Rule']['permission']; //echo $allow.'=>'.$url.' ** '.$data['Rule']['action'];
-                if ($allow == 'Deny') {
+                //The Enum database type has to be changed to boolean, False for deny, True for allow
+                if ($allow == false) {
                     $allow = false;
                     $this->_forward = $data['Rule']['forward'];
                     $this->_flashmessage = $data['Rule']['message'];
@@ -323,7 +324,7 @@ class AuthakeComponent extends Component {
         foreach ($rules as $data) {
             if (preg_match("/{$data['Rule']['action']}/i", $url, $matches)) {
                 $allow = $data['Rule']['permission'];
-                if ($allow == 'Deny')
+                if ($allow == false)
                     $allow = false;
                 else
                     $allow = true;

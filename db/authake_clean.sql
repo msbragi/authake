@@ -25,17 +25,17 @@ CREATE TABLE IF NOT EXISTS `authake_rules` (
   `group_id` int(10) unsigned DEFAULT NULL,
   `order` int(10) unsigned DEFAULT NULL,
   `action` varchar(512) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `permission` enum('Deny','Allow') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Deny',
+  `permission` bit(1) NOT NULL DEFAULT b'0',
   `forward` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
   `message` varchar(512) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 INSERT INTO `authake_rules` (`id`, `name`, `group_id`, `order`, `action`, `permission`, `forward`, `message`) VALUES
-(1, 'Allow everything for Administrators', 1, 999999, '*', 'Allow', '', ''),
-(2, 'Allow anybody to see the home page, the error page, to register, to log in, see profile and log out', null, 200, '/ or /authake/user/* or /register or /login or /logout or /lost-password or /verify(/)?* or /pass(/)?* or /profile or /denied or /pages(/)?* or //pages/*', 'Allow', '', ''),
-(4, 'Deny everything for everybody by default (allow to have allow by default then deny)', null, 0, '*', 'Deny', '', 'Access denied!'),
-(6, 'Display a message for denied admin page', null, 100, '/authake(/index)? or /authake/users* or /authake/groups* or /authake/rules*', 'Deny', '', 'You are not allowed to access the administration page!');
+(1, 'Allow everything for Administrators', 1, 999999, '*', 1, '', ''),
+(2, 'Allow anybody to see the home page, the error page, to register, to log in, see profile and log out', null, 200, '/ or /authake/user/* or /register or /login or /logout or /lost-password or /verify(/)?* or /pass(/)?* or /profile or /denied or /pages(/)?* or //pages/*', 1, '', ''),
+(4, 'Deny everything for everybody by default (allow to have allow by default then deny)', null, 0, '*', 0, '', 'Access denied!'),
+(6, 'Display a message for denied admin page', null, 100, '/authake(/index)? or /authake/users* or /authake/groups* or /authake/rules*', 0, '', 'You are not allowed to access the administration page!');
 
 CREATE TABLE IF NOT EXISTS `authake_users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
