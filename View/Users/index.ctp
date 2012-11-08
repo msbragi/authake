@@ -10,7 +10,7 @@
 					</small>
 				</h3>
 				<div class="section-actions">
-					<a href="<?php echo $this->Html->url(__('New User'), array('controller'=>'users','action'=>'add')); ?>" class="btn btn-primary">
+					<a href="<?php echo $this->Html->url(array('controller'=>'users','action'=>'add')); ?>" class="btn btn-primary">
 						New User
 					</a>
 				</div>
@@ -182,7 +182,7 @@
 				</tbody>
 			</table>
 			<div class="form-actions">
-				<a href="<?php echo $this->Html->url(__('New User'), array('controller'=>'users','action'=>'add')); ?>" class="btn btn-primary">
+				<a href="<?php echo $this->Html->url(array('controller'=>'users','action'=>'add')); ?>" class="btn btn-primary">
 					New User
 				</a>
 			</div>
