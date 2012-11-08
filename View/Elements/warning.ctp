@@ -1,1 +1,4 @@
-<div class="flash_box flash_warning"><?php echo $message ?></div>
+<div class="alert alert-warning">
+	<button type="button" class="close" data-dismiss="alert">×</button>
+	<?php echo $message ?>
+</div>
