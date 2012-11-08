@@ -1,129 +1,192 @@
-<div id="authake">
-<?php if (!$tableonly) { echo $this->element('gotoadminpage'); } ?>
-<div class="users index">
-<?php if (!$tableonly) { ?>
-<h2><?php echo __('Users');?></h2>
-<div class="actions">
-    <ul>
-        <li class="icon add"><?php echo $this->Html->link(__('New User'), array('action'=>'add')); ?></li>
-    </ul>
-</div>
-<?php } ?>
-<p class="paging_count">
-<?php
-echo $this->Paginator->counter(array(
-'format' => __('There are %current% users on this system. Page %page%/%pages%')
-));
-?></p>
-<?php echo $this->Form->create('User', array('class'=>'filter'));?>
-<fieldset>
-<table class="listing" cellpadding="0" cellspacing="0">
-<tr>
-	<th><?php echo $this->Paginator->sort('id');?></th>
-	<th><?php echo $this->Paginator->sort('login');?></th>
-    <th><?php echo $this->Paginator->sort('email');?></th>
-    <th><?php echo 'Group';?></th>
-	<th><?php echo $this->Paginator->sort('Email check', 'emailcheckcode');?></th>
-	<th><?php echo $this->Paginator->sort('Change Pwd','passwordchangecode');?></th>
-    <th><?php echo $this->Paginator->sort('created');?></th>
-    <th><?php echo $this->Paginator->sort(__('Disabled'), 'disable');?></th>
-	<th class="actions"><?php echo __('Actions');?></th>
-</tr>
-<tr class="table-filter">
-    <td width="3%"><?php echo $this->Form->input('User.id', array('div'=>false, 'type'=>'text', 'label'=>false));?></td>
-    <td width="10%"><?php echo $this->Form->input('User.login', array('div'=>false, 'type'=>'text', 'label'=>false));?></td>
-    <td width="20%"><?php echo $this->Form->input('User.email', array('div'=>false, 'type'=>'text', 'label'=>false));?></td>
-    <td width="12%">&nbsp;</td>
-    <td><?php echo $this->Form->input('User.emailcheckcode', array('div'=>false, 'type'=>'text', 'label'=>false));?></td>
-    <td><?php echo $this->Form->input('User.passwordchangecode', array('div'=>false, 'type'=>'text', 'label'=>false));?></td>
-    <td width="5%">&nbsp;</td>
-    <td width="3%">&nbsp;</td>
-    <td class="actions">
-	<?php echo $this->Form->submit(__('filter'), array('div'=>false));?>
-    </td>
-</tr>
-<?php
-$i = 0;
-foreach ($users as $user):
-	$class = '';
-	if ($i++ % 2 == 0) {
-		$class = 'altrow';
-	}
+<?php $this->Html->addCrumb('Users', $this->Html->url( null, true )); ?>
+<div id="content">
+	<div class="container">
+		<div class="section">
+			<div class="section-header">
+				<h3>
+					Users
+					<small>
+						List of all users on your system.
+					</small>
+				</h3>
+				<div class="section-actions">
+					<a href="<?php echo $this->Html->url(__('New User'), array('controller'=>'users','action'=>'add')); ?>" class="btn btn-primary">
+						New User
+					</a>
+				</div>
+			</div>
+			<div class="section-body">
+				<div class="well well-small">
+					<div class="row-fluid">
+						<div class="span6">
+							&nbsp;
+						</div>
+							<?php
+						echo $this->Paginator->counter(array(
+							'format' => __('<div class="span2">
+								<div class="ac stat-block" style="margin-bottom:0">
+									<h3>
+										%current%
+									</h3>
+									<h6 class="stat-heading">
+										Total Users
+									</h6>
+								</div>
+							</div>
+							<div class="span2">
+								<div class="ac stat-block" style="margin-bottom:0">
+									<h3>
+										%page%
+									</h3>
+									<h6 class="stat-heading">
+										Page Number
+									</h6>
+								</div>
+							</div>
+							<div class="span2">
+								<div class="ac stat-block" style="margin-bottom:0">
+									<h3>
+										%pages%
+									</h3>
+									<h6 class="stat-heading">
+										Total Pages
+									</h6>
+								</div>
+							</div>')
+							));
+							?>
+					</div>
+					<div class="row-fluid">
+						<div class="span12">
+                            <ul class="nav nav-pills" style="margin-top:4px;margin-bottom:0">
+                                <li class="active">
 
-    // check if user account enables
-    $exp = $user['User']['expire_account'];
+                                        <?php echo $this->Paginator->sort('id');?>
 
-    if ($user['User']['disable'] or ($exp != '0000-00-00' and $this->Time->fromString($exp) < time()))
-        $class = " class=\"{$class} disabled\"";
-    else
-        $class = " class=\"{$class}\"";
-        
-?>
-	<tr<?php echo $class;?>>
-        <td>
-            <?php echo $user['User']['id']; ?>
-        </td>
-		<td>
-			<?php echo $this->Html->link($user['User']['login'], array('action'=>'view', $user['User']['id'])); ?>&nbsp;
-		</td>
-		<td>
-			<?php $email = $user['User']['email']; echo "<a href=\"mailto:{$email}\">{$email}</a>"; ?>&nbsp;
-		</td>
-        <td>
-            <?php //pr($user['Group']);
-            $gr = (count($user['Group'])) ? array() : array(__('Guest'));     // Specify Guest group if lonely group
-            foreach($user['Group'] as $k=>$group)
-                $gr[] = $this->Html->link(__($group['name']), array('controller'=>'groups', 'action'=>'view', $group['id']));
-            
-            echo implode('<br/>', $gr); ?>&nbsp;
-        </td>
-		<td>
-            <?php
-                    if ($user['User']['emailcheckcode'] != '')
-                        echo $this->Html->image("/authake/img/icons/error.png", array('title' => __('Needed')));
+                                </li>
+                                <li class="">
 
-                    ?>&nbsp;
-		</td>
-		<td>
-			<?php
-                    if ($user['User']['passwordchangecode'] != '')
-                        echo $this->Html->image("/authake/img/icons/error.png", array('title' => __('Requested')));
-                    ?>&nbsp;
-		</td>
-        <td>
-            <?php echo $this->Time->format('d/m/Y', $user['User']['created']); ?>&nbsp;
-        </td>
-        <td>
-    <?php
-        if ($user['User']['disable']) echo $this->Htmlbis->image("/authake/img/icons/lock_delete.png", array('title' => __('Account disabled')));
+                                        <?php echo $this->Paginator->sort('login');?>
 
-        $exp = $user['User']['expire_account'];
-        if ($exp != '0000-00-00' and $this->Time->fromString($exp) < time()) echo $this->Htmlbis->image("/authake/img/icons/clock_delete.png", array('title' => __('Account expired')));
-    ?>&nbsp;
-        </td>
-		<td class="actions">
-            <?php echo $this->Htmlbis->iconlink('information', __('View'), array('action'=>'view', $user['User']['id'])); ?>
-			<?php echo $this->Htmlbis->iconlink('pencil', __('Edit'), array('action'=>'edit', $user['User']['id'])); ?>
-			<?php echo $this->Htmlbis->iconlink('cross', __('Delete'), array('action'=>'delete', $user['User']['id']), null, sprintf(__('Are you sure you want to delete user \'%s\'?'), $user['User']['login'])); ?>
-		&nbsp;
-		</td>
-	</tr>
-<?php endforeach; ?>
-</table>
-</fieldset>
-<?php echo $this->Form->end();?>
-<div class="paging">
-	<?php echo $this->Paginator->prev('<< '.__('previous'), array(), null, array('class'=>'disabled'));?>
- | 	<?php echo $this->Paginator->numbers();?>
-	<?php echo $this->Paginator->next(__('next').' >>', array(), null, array('class'=>'disabled'));?>
+                                </li>
+                                <li class="">
+
+                                        <?php echo $this->Paginator->sort('email');?>
+
+                                </li>
+                                <li class="">
+
+                                        <a href="#"><?php echo 'Group';?></a>
+
+                                </li>
+                                <li class="">
+
+                                        <?php echo $this->Paginator->sort('created');?>
+                    
+                                </li>
+                                <li class="">
+
+                                        <?php echo $this->Paginator->sort(__('Disabled'), 'disable');?>
+                                    
+                                </li>
+                            </ul>
+                        </div>
+                        
+					</div>
+				</div>
+				<table class="table table-outer-bordered">
+					<tbody>
+						<?php
+						$i = 0;
+						foreach ($users as $user):
+							$class = '';
+							if ($i++ % 2 == 0) {
+								$class = 'altrow';
+							}
+
+							// check if user account enables
+							$exp = $user['User']['expire_account'];
+
+							if ($user['User']['disable'] or ($exp != '0000-00-00' and $this->Time->fromString($exp) < time()))
+								$class = " class=\"{$class} disabled\"";
+							else
+								$class = " class=\"{$class}\"";
+
+							?>
+						<tr>
+							<td style="width:30px">
+								<a href="<?php echo $this->Html->url( array('action'=>'view', $user['User']['id'])); ?>">
+									<img alt="No-photo-placeholder" height="30" src="img/no-photo-placeholder.png" width="30">
+								</a>
+							</td>
+							<td>
+								<i class="picons-16-basic3-146">
+								</i>
+								<?php echo $user['User']['id']; ?>
+							</td>
+							<td>
+									<?php echo $this->Html->link($user['User']['login'], array('action'=>'view', $user['User']['id'])); ?>
+							</td>
+							<td>
+									<?php $email = $user['User']['email']; echo "<a href=\"mailto:{$email}\">{$email}</a>"; ?>
+							</td>
+							<td>
+								<div class="muted">
+									<?php //pr($user['Group']);
+								$gr = (count($user['Group'])) ? array() : array(__('Guest'));     // Specify Guest group if lonely group
+								foreach($user['Group'] as $k=>$group)
+									$gr[] = $this->Html->link(__($group['name']), array('controller'=>'groups', 'action'=>'view', $group['id']),array('class'=>'label'));
+
+								echo implode('', $gr); ?>
+								</div>
+								</td>
+							<td>
+								<?php echo $this->Time->format('d/m/Y', $user['User']['created']); ?>&nbsp;
+							</td>
+							<td>
+								<?php if ($user['User']['disable']) echo '<span class="label label-important">Disabled</span>&nbsp;';
+
+								$exp = $user['User']['expire_account'];
+								if ($exp != '0000-00-00' and $this->Time->fromString($exp) < time()) echo '<span class="label label-warning">Expired</span>';
+								?>
+							</td>
+							<td>
+								<div class="btn-group">
+									<a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+										<i class="icon-cog">
+										</i>
+										<span class="caret">
+										</span>
+									</a>
+									<ul class="dropdown-menu pull-right">
+										<li>
+											<a href="<?php echo $this->Html->url(array('action'=>'edit', $user['User']['id'])); ?>">
+												<i class="icon-pencil">
+												</i>
+												Edit
+											</a>
+										</li>
+										<li>
+											<a href="<?php echo $this->Html->url( array('action'=>'delete', $user['User']['id']))?>" data-confirm="WARNING: This will also delete all data related to vehicle 'C180' (service entries, fuel entries, etc).
+											This cannot be undone.
+											Are you sure you want to delete <?php echo $user['User']['login']; ?>?" data-disable-with="Deleting..." data-method="delete" rel="nofollow">
+											<i class="icon-trash"> </i>
+											Delete
+										</a>
+									</li>
+								</ul>
+							</div>
+						</td>
+					</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+			<div class="form-actions">
+				<a href="<?php echo $this->Html->url(__('New User'), array('controller'=>'users','action'=>'add')); ?>" class="btn btn-primary">
+					New User
+				</a>
+			</div>
+		</div>
+	</div>
 </div>
-</div>
-<?php if (!$tableonly) { ?>
-<div class="actions">
-	<ul>
-        <li class="icon user"><?php echo $this->Html->link(__('Manage groups'), array('controller'=> 'groups', 'action'=>'index')); ?> </li>
-        <li class="icon lock"><?php echo $this->Html->link(__('Manage rules'), array('controller'=> 'rules', 'action'=>'index')); ?> </li>
-	</ul>
-</div>
-<?php } ?>
 </div>
