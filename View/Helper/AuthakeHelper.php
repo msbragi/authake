@@ -28,6 +28,10 @@ class AuthakeHelper extends AppHelper {
         return $this->Session->read('Authake.id');
     }
 
+    function getUserEmail() {
+        return $this->Session->read('Authake.email');
+    }
+
     function isLogged() {
         return ($this->getUserId() !== null);
     }
