@@ -3,7 +3,7 @@
 	This file is part of Authake.
 
 	Author: Jérôme Combaz (jakecake/velay.greta.fr)
-	Contributors:
+	Contributors: Mutlu Tevfik Kocak (mtkocak.net)
 
 	Authake is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
 */
 class AuthakeController extends AuthakeAppController {
 	var $uses = array();// needed as we don't have any model
-	var $layout = 'authake';
+	//var $layout = 'authake';
 	
 	function index() {
 		$this->set('title_for_layout', 'Authake User & Group Management');
