@@ -31,9 +31,9 @@ class HtmlbisHelper extends HtmlHelper {
     
     function iconallowdeny($what) {
         if ($what == true)
-            echo $this->image("/authake/img/icons/accept.png", array('title' => __('Allow')));
+            echo "<span class='label label-success'>".__('Allow')."</span>";
         else
-            echo $this->image("/authake/img/icons/delete.png", array('title' => __('Deny')));
+            echo "<span class='label label-important'>".__('Deny')."</span>";
     }
 }
 ?>
