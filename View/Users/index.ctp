@@ -137,7 +137,7 @@
 								foreach($user['Group'] as $k=>$group)
 									$gr[] = $this->Html->link(__($group['name']), array('controller'=>'groups', 'action'=>'view', $group['id']),array('class'=>'label'));
 
-								echo implode('', $gr); ?>
+								echo implode(' ', $gr); ?>
 								</div>
 								</td>
 							<td>
