@@ -16,14 +16,14 @@
 						</button>
 						<ul class="dropdown-menu pull-right">
 							<li>
-								<a href="/5d10947b6c/vehicles/11465" data-confirm="WARNING: This will also delete all data related to user <?php  echo sprintf(__('User %s'), "{$user['User']['login']}"); ?>.
+								<a href="<?php echo $this->Html->url(array('controller'=>'users','action'=>'delete', $user['User']['id'])); ?>" data-confirm="WARNING: This will also delete all data related to user <?php  echo sprintf(__('User %s'), "{$user['User']['login']}"); ?>.
 
 								This cannot be undone.
 
-								Are you sure you want to delete 'Bugatti Veyron'?" data-disable-with="Deleting..." data-method="delete" rel="nofollow"><i class="icon-trash"></i>
+								Are you sure you want to delete <?php  echo sprintf(__('%s'), "{$user['User']['login']}"); ?>?" data-disable-with="Deleting..." data-method="delete" rel="nofollow"><i class="icon-trash"></i>
 								Delete User
-							</a></li>
-
+							</a>
+							</li>
 						</ul>
 					</div>
 				</div>
