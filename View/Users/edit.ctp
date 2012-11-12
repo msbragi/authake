@@ -3,10 +3,8 @@
 	<div class="container">
 		<div class="section">
 			<div class="section-header">
-				<h3>Modify User <?php echo $this->Authake->getLogin(); ?></h3>
+				<h3>Modify User <?php echo $this->data['User']['login']; ?></h3>
 				<div class="section-actions">
-					<?php echo $this->Form->end(array('div'=>false,'label'=>'Edit','class'=>'action input-action btn btn-success'));?>
-
 					<?php echo $this->Html->link(__('View user'), array('action'=>'view', $this->Form->value('User.id')), array('class'=>'btn btn-primary'));?>
 					<a href="<?php echo $this->Html->url( array('controller'=> 'users', 'action'=>'index')); ?>" class="btn btn-link">Cancel</a>
 					<?php echo $this->Html->link(__('Delete'), array('action'=>'delete', $this->Form->value('User.id')), array('class'=>'btn btn-danger'), sprintf(__('Are you sure you want to delete @%s?'), $this->Form->value('User.login'))); ?>
