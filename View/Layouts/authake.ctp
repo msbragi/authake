@@ -56,7 +56,7 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $this->Gravatar->get_gravatar($this->Authake->getUserEmail(),18,'','',true).'&nbsp;'; echo $this->Authake->getLogin(); ?> <b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Profile Settings</a></li>
+								<li><a href="<?php echo $this->Html->url( array('controller'=>'user','action'=>'index')); ?>">Profile Settings</a></li>
 								<li class="divider"></li>
 								<li><?php echo $this->Html->link(__('Logout'), array('controller'=> 'user', 'action'=>'logout')); ?></li>
 							</ul>
@@ -69,7 +69,7 @@
 						}
 						?>
 						<li class="divider-vertical"></li>
-						<li><a href="#"><i class="icon-comment icon-white"></i> Help</a></li>
+						<li><a href="<?php echo $this->Html->url( array('controller'=>'authake','action'=>'help')); ?>"><i class="icon-comment icon-white"></i> Help</a></li>
 					</ul>                    
 				</div>
 			</div>
