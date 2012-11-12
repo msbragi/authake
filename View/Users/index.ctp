@@ -6,7 +6,11 @@
 				<h3>
 					Users
 					<small>
-						List of all users on your system.
+						<?php
+						echo $this->Paginator->counter(array(
+						'format' => __('There are %current% users on this system.')
+						));
+						?>
 					</small>
 				</h3>
 				<div class="section-actions">
