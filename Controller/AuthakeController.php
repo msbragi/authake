@@ -19,11 +19,21 @@
 	along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 */
 class AuthakeController extends AuthakeAppController {
-	var $uses = array();// needed as we don't have any model
+	var $uses = array('Authake.User','Authake.Rule','Authake.Group');// needed as we don't have any model
 	//var $layout = 'authake';
 	
 	function index() {
 		$this->set('title_for_layout', 'Authake User & Group Management');
+		$admins = $this->Group->find('all', array('conditions'=>array('name'=>'Administrators')));
+		$adminCount = sizeof($admins[0]['User']);
+		$userCount = $this->User->find('count');
+		$groupCount = $this->Group->find('count');
+		$ruleCount = $this->Rule->find('count');
+		$this->set(compact('adminCount','userCount','groupCount','ruleCount'));
+	}
+	
+	function help() {
+		$this->set('title_for_layout', 'Help for Authake');
 	}
 	
 	function settings(){
