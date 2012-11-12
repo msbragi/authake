@@ -1,4 +1,4 @@
-<?php $this->Html->addCrumb('New User', $this->Html->url( null, true ));
+<?php $this->Html->addCrumb('New Rule', $this->Html->url( null, true ));
 $up = null;
 //echo $this->Html->image($this->Gravatar->get_gravatar('mtkocak@gmail.com'));
  ?>
