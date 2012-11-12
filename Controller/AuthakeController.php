@@ -25,5 +25,33 @@ class AuthakeController extends AuthakeAppController {
 	function index() {
 		$this->set('title_for_layout', 'Authake User & Group Management');
 	}
+	
+	function settings(){
+		if (!empty($this->request->data['Settings']))
+		{
+			Configure::write('Authake',$this->request->data['Settings']);
+		}
+	$configs = Configure::read('Authake');
+	$this->set(compact('configs'));// fix permissions dropdown menu
+	}
+	
+	function reset(){
+	            Configure::write('Authake.baseUrl', Router::url('/', true));   // set the full application url
+	            Configure::write('Authake.service', 'Authake'); //Name of the service i.e. "Super Authake"
+	            Configure::write('Authake.loginAction', array('plugin' => 'authake', 'controller' => 'user', 'action' => 'login', 'admin' => 0));
+	            Configure::write('Authake.loggedAction', Configure::read('Authake.baseUrl'));
+	            Configure::write('Authake.sessionTimeout', 3600 * 24 * 7);
+	            Configure::write('Authake.defaultDeniedAction', array('plugin' => 'authake', 'controller' => 'user', 'action' => 'denied', 'admin' => 0));
+	            Configure::write('Authake.rulesCacheTimeout', 300);
+	            Configure::write('Authake.systemEmail', 'noreply@example.com');
+	            Configure::write('Authake.systemReplyTo', 'noreply@example.com');
+	            Configure::write('Authake.passwordVerify', true);
+	            Configure::write('Authake.registration', true); //or false
+	            Configure::write('Authake.defaultGroup', 2); //could be array or single number
+	            Configure::write('Authake.useDefaultLayout', false); //could be true or false
+	            Configure::write('Authake.useEmailAsUsername', false); //could be true or false
+				$this->Session->setFlash(__('Authake Reset'), 'success');
+				$this->redirect(array('action'=>'index'));
+			}
 }
 ?>

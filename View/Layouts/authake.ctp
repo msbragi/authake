@@ -51,6 +51,7 @@
 						</li>
 					</ul>
 					<ul class="nav pull-right">
+						<li><a href="<?php echo $this->Html->url( array('controller'=>'authake','action'=>'settings')); ?>">Settings</a></li>
 						<?php if($this->Authake->getLogin()){?>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $this->Gravatar->get_gravatar($this->Authake->getUserEmail(),18,'','',true).'&nbsp;'; echo $this->Authake->getLogin(); ?> <b class="caret"></b></a>
