@@ -5,7 +5,9 @@
 			<div class="section-header">
 				<h3>Modify Rule</h3>
 				<div class="section-actions">
-					<a href="<?php echo $this->Html->url( array('controller'=> 'rules', 'action'=>'index')); ?>" class="btn btn-primary">Cancel</a>
+					<?php echo $this->Html->link(__('View rule'), array('action'=>'view', $this->Form->value('Rule.id')), array('class'=>'btn btn-primary'));?>
+					<a href="<?php echo $this->Html->url( array('controller'=> 'rules', 'action'=>'index')); ?>" class="btn btn-link">Cancel</a>
+					<?php echo $this->Html->link(__('Delete'), array('action'=>'delete', $this->Form->value('Rule.id')), array('class'=>'btn btn-danger'), sprintf(__('Are you sure you want to delete @%s?'), $this->Form->value('Rule.name'))); ?>
 				</div>
 			</div>
 			<div class="section-body">
@@ -16,7 +18,9 @@
 						<div class="string control-group stringish" id="Login">
 							<label class="control-label"><?php echo __('Description'); ?></label>
 							<div class="controls">
-							<?php echo $this->Form->input('name', array('label'=>false, 'type'=>'textarea', 'cols'=>'50', 'rows'=>'2', 'after'=>'<span class="help-inline">Description of the Rule</span></div>'));?>
+							<?php 
+							echo $this->Form->input('id');
+							echo $this->Form->input('name', array('label'=>false, 'type'=>'textarea', 'cols'=>'50', 'rows'=>'2', 'after'=>'<span class="help-inline">Description of the Rule</span></div>'));?>
 						</div>
 						<div class="string control-group stringish" id="Password">
 							<label class="control-label"><?php echo __('Group'); ?></label>
@@ -49,8 +53,10 @@
 						</div>
 					</fieldset>
 					<fieldset class="form-actions">
-						<?php echo $this->Form->end(array('div'=>false,'label'=>'Submit','class'=>'action input-action btn btn-primary'));?>
+						<?php echo $this->Form->end(array('div'=>false,'label'=>'Edit','class'=>'action input-action btn btn-success'));?>
+						<?php echo $this->Html->link(__('View Rule'), array('action'=>'view', $this->Form->value('Rule.id')), array('class'=>'btn btn-primary'));?>
 						<a href="<?php echo $this->Html->url( array('controller'=> 'rules', 'action'=>'index')); ?>" class="btn btn-link">Cancel</a>
+						<?php echo $this->Html->link(__('Delete'), array('action'=>'delete', $this->Form->value('Rule.id')), array('class'=>'btn btn-danger'), sprintf(__('Are you sure you want to delete @%s?'), $this->Form->value('Rule.name'))); ?>
 					</fieldset>
 				</div>
 			</div>
