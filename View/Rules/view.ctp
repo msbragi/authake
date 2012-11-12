@@ -16,11 +16,13 @@ $up = null;
 						</button>
 						<ul class="dropdown-menu pull-right">
 							<li>
-								<?php echo $this->Html->link(__('Delete Rule'), array('action'=>'delete', $rule['Rule']['id']), null, sprintf(__('WARNING: This will also delete all data related to rule %s
-							This cannot be undone.
+								<a href="<?php echo $this->Html->url(array('controller'=>'rules','action'=>'delete', $rule['Rule']['id'])); ?>" data-confirm="WARNING: This will also delete all data related to user <?php  echo sprintf(__('Rule %s'), "{$rule['Rule']['name']}"); ?>.
 
-								Are you sure you want to delete rule?'), $rule['Rule']['id'])); ?>
-								<i class="icon-trash"></i>
+								This cannot be undone.
+
+								Are you sure you want to delete <?php  echo sprintf(__('%s'), "{$rule['Rule']['name']}"); ?>?" data-disable-with="Deleting..." data-method="delete" rel="nofollow"><i class="icon-trash"></i>
+								Delete Rule
+							</a>
 							</li>
 						</ul>
 					</div>
