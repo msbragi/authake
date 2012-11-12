@@ -120,7 +120,7 @@
 						<tr>
 							<td style="width:30px">
 								<a href="<?php echo $this->Html->url( array('action'=>'view', $user['User']['id'])); ?>">
-									<img alt="No-photo-placeholder" height="30" src="img/no-photo-placeholder.png" width="30">
+									<?php echo $this->Gravatar->get_gravatar($user['User']['email'],30,'','',true) ?>
 								</a>
 							</td>
 							<td>
