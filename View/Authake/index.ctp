@@ -1,38 +1,95 @@
-<div id="authake">
-    <div class="actions menuheader">
-        <ul>
-            <li class="icon door_in"><?php echo $this->Html->link(__('Logout'), array('controller'=> 'user', 'action'=>'logout')); ?></li>
-        </ul>
-    </div>
-    <div class="index">
-        <h2><?php echo __('Authake administration page');?></h2>
-        <div class="actions">
-            <ul>
-                <li class="icon user"><?php echo $this->Html->link(__('Manage users'), array('controller'=> 'users', 'action'=>'index')); ?> </li>
-                <li class="icon group"><?php echo $this->Html->link(__('Manage groups'), array('controller'=> 'groups', 'action'=>'index')); ?> </li>
-                <li class="icon lock"><?php echo $this->Html->link(__('Manage rules'), array('controller'=> 'rules', 'action'=>'index')); ?> </li>
-            </ul>
-        </div>
-        <h3><?php echo __('Users');?></h3>
-        <?php echo $this->requestAction('authake/users/index/tableonly', array('return')); ?>
-        <div class="actions">
-            <ul>
-                <li class="icon add"><?php echo $this->Html->link(__('New user'), array('controller'=> 'users', 'action'=>'add')); ?></li>
-            </ul>
-        </div>
-        <h3><?php __('Groups');?></h3>
-        <?php echo $this->requestAction('authake/groups/index/tableonly', array('return')); ?>
-        <div class="actions">
-            <ul>
-                <li class="icon add"><?php echo $this->Html->link(__('New group'), array('controller'=> 'groups', 'action'=>'add')); ?></li>
-            </ul>
-        </div>
-        <h3><?php echo __('Rules');?></h3>
-        <?php echo $this->requestAction('authake/rules/index/tableonly', array('return')); ?>
-        <div class="actions">
-            <ul>
-                <li class="icon add"><?php echo $this->Html->link(__('New rule'), array('controller'=> 'rules', 'action'=>'add')); ?></li>
-            </ul>
-        </div>
-    </div>
+<div class="row-fluid">
+	<div class="span6">
+		<div class="row-fluid">
+			<div class="span6">
+				<div class="section section-small">
+					<div class="section-header">
+						<h5>Users</h5>
+					</div>
+					<div class="section-body">
+						<div class="row-fluid">
+							<div class="span6 ac">
+								<div class="stat-block">
+									<h1 class="success"><?php echo $adminCount;?></h1>
+									<h6 class="stat-heading">Admins</h6>
+								</div>
+							</div>
+							<div class="span6 ac">
+								<div class="stat-block">
+									<h1 class="success"><?php echo $userCount;?></h1>
+									<h6 class="stat-heading">Total Users</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="span6">
+				<div class="section section-small">
+					<div class="section-header">
+						<h5>Groups & Rules</h5>
+					</div>
+					<div class="section-body">
+						<div class="row-fluid">
+							<div class="span6 ac">
+								<div class="stat-block">
+									<h1 class="success"><?php echo $groupCount;?></h1>
+									<h6 class="stat-heading">Groups</h6>
+								</div>
+							</div>
+							<div class="span6 ac">
+								<div class="stat-block">
+									<h1 class="success"><?php echo $ruleCount;?></h1>
+									<h6 class="stat-heading">Rules</h6>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="span6">
+		<div class="section section-small">
+			<div class="section-header">
+				<h5>News from the Author</h5>
+			</div>
+			<div class="section-body">
+				<div class="row-fluid">
+					<script src="http://widgets.twimg.com/j/2/widget.js" type="text/javascript">
+					</script> <script type="text/javascript">
+					new TWTR.Widget({
+						version: 2,
+						type: 'profile',
+						rpp: 20,
+						interval: 6000,
+						width: 'auto',
+						height: 500,
+						theme: {
+							shell: {
+								background: '#ffffff',
+								color: '#000000'
+							},
+							tweets: {
+								background: '#ffffff',
+								color: '#000000',
+								links: '#0748eb'
+							}
+						},
+						features: {
+							scrollbar: true,
+							loop: false,
+							live: true,
+							hashtags: true,
+							timestamp: true,
+							avatars: false,
+							behavior: 'all'
+						}
+						}).render().setUser('mtkocak').start();
+						</script>
+	
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
