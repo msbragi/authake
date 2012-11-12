@@ -3,6 +3,28 @@ Authake
 
 Authake is finally arrived to CakePHP 2.2.3 and is (another) solution to manage users and groups and their rights in a CakePHP platform, as well as their registration, email confirmation and password changing requests. It’s composed by a component, a plugin, and a helper.
 
+Newest features are:
+
+1. Totally new look & feel. New interface using twitter bootstrap library
+2. Generated schema file to use cache schema create
+3. Total adaptation to CakePHP 2.2.3
+4. Totally new Dashboard
+5. Gravatar Support
+6. Better alerts
+7. Beautiful navigation and breadcrumbs
+8. html5shiv support for older browsers
+9. Dropdown lists for commands
+10. Help file with regex information
+11. Settings page (needs some effort)
+12. Better readme files with markdowns
+
+Further changes are here for your contribution:
+
+- sha1 security
+- long id's
+- settings save issue
+- For questions and issues: Mutlu Tevfik Kocak mtkocak(at) gmail.com
+
 Downlad
 --------------
 
