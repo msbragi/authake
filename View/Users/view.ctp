@@ -1,4 +1,6 @@
-<?php $this->Html->addCrumb('New User', $this->Html->url( null, true )); ?>
+<?php $this->Html->addCrumb('New User', $this->Html->url( null, true ));
+//echo $this->Html->image($this->Gravatar->get_gravatar('mtkocak@gmail.com'));
+ ?>
 <div id="content">
 	<div class="container">
 		<div class="section">
@@ -14,7 +16,7 @@
 						</button>
 						<ul class="dropdown-menu pull-right">
 							<li>
-								<a href="/5d10947b6c/vehicles/11465" data-confirm="WARNING: This will also delete all data related to vehicle 'Bugatti Veyron'.
+								<a href="/5d10947b6c/vehicles/11465" data-confirm="WARNING: This will also delete all data related to user <?php  echo sprintf(__('User %s'), "{$user['User']['login']}"); ?>.
 
 								This cannot be undone.
 
