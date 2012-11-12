@@ -1,4 +1,5 @@
 v2.2.3 (Nov 6, 2012) Mutlu Tevfik Kocak
+	* Gravatar support
 	* All new look & feel
     * Continuous login failure issue solved
     * New markdowns added
