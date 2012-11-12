@@ -1,70 +1,82 @@
-<div id="authake">
-<?php if (!$tableonly) { echo $this->element('gotoadminpage'); } ?>
-<div class="groups index">
-<?php if (!$tableonly) { ?>
-
-<h2><?php __('Groups');?></h2>
-<div class="actions">
-    <ul>
-        <li class="icon add"><?php echo $this->Html->link(__('New group'), array('action'=>'add')); ?></li>
-    </ul>
-</div>
-<?php } ?>
-<p class="paging_count">
-<?php
-echo $this->Paginator->counter(array(
-'format' => __('There are %current% groups on this system.')
-));
-?></p>
-<table class="listing" cellpadding="0" cellspacing="0">
-<tr>
-	<th><?php echo $this->Paginator->sort('name');?></th>
-	<th class="actions"><?php __('Actions');?></th>
-</tr>
-<?php
-$i = 0;
-foreach ($groups as $group):
-	$class = null;
-	if ($i++ % 2 == 0) {
-		$class = ' class="altrow"';
-	}
+<?php $this->Html->addCrumb('Groups', $this->Html->url( null, true ));
+$up = null;
+//echo $this->Html->image($this->Gravatar->get_gravatar('mtkocak@gmail.com'));
 ?>
-	<tr<?php echo $class;?>>
-    <?php if ($group['Group']['id'] != 0) { ?>
-		<td>
-			<?php echo $this->Html->link($group['Group']['name'], array('action'=>'view', $group['Group']['id'])); ?>
-		</td>
-		<td class="actions">
-			<?php echo $this->Htmlbis->iconlink('information', __('View'), array('action'=>'view', $group['Group']['id'])); ?>
-			<?php echo $this->Htmlbis->iconlink('pencil', __('Edit'), array('action'=>'edit', $group['Group']['id'])); ?>
-			<?php echo $this->Htmlbis->iconlink('cross', __('Delete'), array('action'=>'delete', $group['Group']['id']), null, sprintf(__('Are you sure you want to delete the group \'%s\'?'), $group['Group']['name'])); ?>
-        </td>
-    <?php } else { ?>
-	</tr>
-    <?php } ?>
-<?php endforeach; ?>
-<?php
-    $class = null;
-    if ($i++ % 2 == 0) {
-        $class = ' class="altrow"';
-    }
-    echo "<tr{$class}>";
-    ?>
-        <td>
-            <?php echo __('Everybody (all users, logged or not, are in this group)'); ?>
-        </td>
-        <td class="actions">&nbsp;
-        </td>
-    </tr>
-</table>
+<div id="content">
+	<div class="container">
+		<div class="section">
+			<div class="section-header">
+				<h3><?php echo __('Groups');?>
+					<small>
+						<?php
+					echo $this->Paginator->counter(array(
+						'format' => __('There are %current% groups on this system.')
+							));
+						?>
+					</small>
+				</h3>
+				<div class="section-actions">
+					<div class="btn-group">
+						<a class="btn btn-primary" href="<?php echo $this->Html->url(array('controller'=>'groups','action'=>'add')); ?>">
+							New Group
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="section-body">
+				<table class="table table-outer-bordered">
+					<tbody>
+						<?php
+					foreach ($groups as $group):
+						?>
+						<tr>
+							<td>
+								<?php echo $this->Html->link($group['Group']['name'], array('action'=>'view', $group['Group']['id'])); ?>
+							</td>
+							<td>
+								<div class="btn-group">
+									<a class="btn btn-mini dropdown-toggle pull-right" data-toggle="dropdown" href="#">
+										<i class="icon-cog">
+										</i>
+										<span class="caret">
+										</span>
+									</a>
+									<ul class="dropdown-menu pull-right">
+										<li>
+											<a href="<?php echo $this->Html->url(array('controller'=>'groups','action'=>'view', $group['Group']['id'])); ?>">
+												<i class="icon-arrow-right">
+												</i>
+												View
+											</a>
+										</li>
+										<li>
+											<a href="<?php echo $this->Html->url(array('controller'=>'groups', 'action'=>'edit', $group['Group']['id'])); ?>">
+												<i class="icon-pencil">
+												</i>
+												Edit
+											</a>
+										</li>
+										<li>
+											<a href="<?php echo $this->Html->url( array('controller'=>'groups', 'action'=>'delete', $group['Group']['id']))?>" data-confirm="WARNING: This will also delete all data related to userss.
+												This cannot be undone.
+												Are you sure you want to delete <?php echo $group['Group']['name']; ?>?" data-disable-with="Deleting..." data-method="delete" rel="nofollow">
+												<i class="icon-trash"> </i>
+												Delete
+											</a>
+										</li>
+									</ul>
+								</div>
+							</td>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+			<div class="form-actions">
+				<a href="<?php echo $this->Html->url(array('controller'=>'groups','action'=>'add')); ?>" class="btn btn-primary">
+					New Group
+				</a>
+			</div>
+		</div>
+	</div>
 </div>
-
-<?php if (!$tableonly) { ?>
-<div class="actions">
-	<ul>
-        <li class="icon user"><?php echo $this->Html->link(__('Manage users'), array('controller'=> 'users', 'action'=>'index')); ?> </li>
-        <li class="icon lock"><?php echo $this->Html->link(__('Manage rules'), array('controller'=> 'rules', 'action'=>'index')); ?> </li>
-	</ul>
-</div>
-<?php } ?>
 </div>
