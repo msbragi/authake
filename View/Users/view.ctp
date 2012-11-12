@@ -1,4 +1,4 @@
-<?php $this->Html->addCrumb('New User', $this->Html->url( null, true ));
+<?php $this->Html->addCrumb('View User', $this->Html->url( null, true ));
 //echo $this->Html->image($this->Gravatar->get_gravatar('mtkocak@gmail.com'));
  ?>
 <div id="content">
