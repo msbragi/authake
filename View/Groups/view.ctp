@@ -23,7 +23,7 @@
 										This cannot be undone.
 
 										Are you sure you want to delete <?php  echo sprintf(__('%s'), "{$group['Group']['name']}"); ?>?" data-disable-with="Deleting..." data-method="delete" rel="nofollow"><i class="icon-trash"></i>
-										Delete Rule
+										Delete Group
 									</a>
 									</li>
 							<?php } ?> 
