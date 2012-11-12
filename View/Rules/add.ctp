@@ -42,7 +42,7 @@
 							</div>
 						</div>
 						<div class="string control-group stringish" id="Group">
-							<?php echo $this->Form->input('forward', array('label'=>array('text'=>__('Forward action on deny'),'class'=>'control-label'),'between'=>'<div class="controls">', 'after'=>'<span class="help-inline">The route to be forwarded after allowed rule.</span></div>'));?>
+							<?php echo $this->Form->input('forward', array('label'=>array('text'=>__('Forward action on error'),'class'=>'control-label'),'between'=>'<div class="controls">', 'after'=>'<span class="help-inline">The route to be forwarded after allowed rule.</span></div>'));?>
 						</div>
 						<div class="string control-group stringish" id="Group">
 							<?php echo $this->Form->input('message', array('label'=>array('text'=>__('Flash message on deny'),'class'=>'control-label'), 'type'=>'textarea', 'cols'=>'50', 'rows'=>'2','between'=>'<div class="controls">', 'after'=>'<span class="help-inline">Deny message on failed entry.</span></div>'));?>
