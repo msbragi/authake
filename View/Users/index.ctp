@@ -167,7 +167,7 @@
 											</a>
 										</li>
 										<li>
-											<a href="<?php echo $this->Html->url( array('action'=>'delete', $user['User']['id']))?>" data-confirm="WARNING: This will also delete all data related to vehicle 'C180' (service entries, fuel entries, etc).
+											<a href="<?php echo $this->Html->url( array('action'=>'delete', $user['User']['id']))?>" data-confirm="WARNING: This will also delete all data related to userss.
 											This cannot be undone.
 											Are you sure you want to delete <?php echo $user['User']['login']; ?>?" data-disable-with="Deleting..." data-method="delete" rel="nofollow">
 											<i class="icon-trash"> </i>
