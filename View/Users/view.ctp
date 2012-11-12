@@ -8,7 +8,7 @@
 				<h3><?php  echo sprintf(__('User %s'), "<u>{$user['User']['login']}</u>"); ?></h3>
 				<div class="section-actions">
 					<div class="btn-group">
-						<a class="btn btn-primary" href="/5d10947b6c/vehicles/11465/edit">
+						<a class="btn btn-primary" href="">
 							Edit User
 						</a>
 						<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button">
@@ -31,8 +31,7 @@
 			<div class="section-body">
 				<div class="row-fluid">
 					<div class="span2">
-						<?php echo $this->Html->image('Authake.no-photo-placeholder.png', array('width'=>'130','height'=>'130'));
-						?>
+						<?php echo $this->Gravatar->get_gravatar($user['User']['email'],130,'','',true) ?>
 					</div>
 					<div class="span10">
 					<div class="page-header">
