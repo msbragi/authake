@@ -181,7 +181,6 @@ class UserController extends AuthakeAppController {
 		if (!empty($this->request->data))
 		{
 			$this->User->recursive = 0;/* If settings say we should use only email info instead of username/email, skip this */
-
 			if (Configure::read('Authake.useEmailAsUsername') == false)
 			{
 				$exist = $this->User->findByLogin($this->request->data['User']['login']);

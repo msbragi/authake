@@ -1,7 +1,7 @@
 <div id="authake">
 <?php echo $this->element('gotohomepage'); ?>
 <div class="register form">
-<?php echo $this->Form->create(null, array('action'=>'register'));?>
+<?php echo $this->Form->create(null, array('url' => array('controller' => 'user', 'action'=>'register')));?>
 	<fieldset>
  		<legend><?php __('Registration');?></legend>
 <?php

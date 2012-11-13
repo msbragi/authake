@@ -1,7 +1,7 @@
 <div id="authake">
 <?php echo $this->element('gotohomepage'); ?>
 <div class="confirmregister form">
-<?php echo $this->Form->create(null, array('action'=>'pass'));?>
+<?php echo $this->Form->create(null, array('url' => array('controller' => 'user', 'action'=>'pass')));?>
 	<fieldset>
  		<legend><?php __('Change your password');?></legend>
 	<?php

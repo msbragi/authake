@@ -26,7 +26,7 @@
         </dd>
     </dl>
 
-<?php echo $this->Form->create('User', array('url'=>'index'));?>
+<?php echo $this->Form->create('User', array('url' => array('controller' => 'user', 'action'=>'index')));?>
 <fieldset>
         <legend><?php echo __('Modify profile');?></legend>
     <?php

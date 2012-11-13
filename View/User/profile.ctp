@@ -1,7 +1,7 @@
 <div id="authake">
 <?php echo $this->element('gotohomepage'); ?>
 <div class="changemypassword form">
-<?php echo $this->Form->create(null, array('action'=>'changemypassword'));?>
+<?php echo $this->Form->create(null, array('url' => array('controller' => 'user', 'action'=>'changemypassword')));?>
 <fieldset class="mypassword">
     <?php echo $this->Form->input('email', array('label'=>'Email', 'size'=>'40'));?>
     <?php echo $this->Form->input('code', array('label'=>'Code', 'size'=>'40'));?>
