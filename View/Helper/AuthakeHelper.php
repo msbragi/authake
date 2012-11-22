@@ -19,10 +19,9 @@
     along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 class AuthakeHelper extends AppHelper {
   
-    var $helpers = array('Session','Authake.Gravatar');
+    var $helpers = array('Session','Authake.Gravatar','Html');
 
     function getUserId() {
         return $this->Session->read('Authake.id');
@@ -32,8 +31,25 @@ class AuthakeHelper extends AppHelper {
         return $this->Session->read('Authake.email');
     }
 
-    function get_gravatar($input) {
-        return $this->Gravatar->get_gravatar($input);
+    function getUserMenu() {
+	
+ 	if($this->getLogin()){
+		$output = '<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">'.
+			$this->Gravatar->get_gravatar($this->getUserEmail(),18,'','',true).'&nbsp;'. 
+			$this->getLogin().'<b class="caret"></b></a>
+			<ul class="dropdown-menu">
+				<li><a href="'.$this->Html->url( array('controller'=>'user','action'=>'index')).'">Profile Settings</a></li>
+				<li class="divider"></li>
+				<li>'.$this->Html->link(__('Logout'), array('controller'=> 'user', 'action'=>'logout')).'</li>
+			</ul>
+		</li>';
+		}
+		else
+		{
+		$output = '<li>'.$this->Html->link(__('Login'), array('controller'=> 'user', 'action'=>'login')).'</li>';
+		}
+        return $output;
     }
 
     function isLogged() {
