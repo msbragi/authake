@@ -22,7 +22,7 @@
 
 class AuthakeHelper extends AppHelper {
   
-    var $helpers = array('Session');
+    var $helpers = array('Session','Authake.Gravatar');
 
     function getUserId() {
         return $this->Session->read('Authake.id');
@@ -30,6 +30,10 @@ class AuthakeHelper extends AppHelper {
 
     function getUserEmail() {
         return $this->Session->read('Authake.email');
+    }
+
+    function get_gravatar($input) {
+        return $this->Gravatar->get_gravatar($input);
     }
 
     function isLogged() {
