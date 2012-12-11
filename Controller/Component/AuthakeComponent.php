@@ -4,7 +4,7 @@
   This file is part of Authake.
 
   Author: Jérôme Combaz (jakecake/velay.greta.fr)
-  Contributors:
+  Contributors: Mutlu Tevfik Kocak Since too long time, Do not forget Nick Chankov nchankov
 
   Authake is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@ class AuthakeComponent extends Component {
     var $_forward = null;
     var $_flashmessage = '';
 
-    function initialize($controller) {
+    function initialize(Controller $controller) {
         
     }
 
@@ -34,7 +34,7 @@ class AuthakeComponent extends Component {
         parent::__construct($collection, $settings);
     }
 
-    function startup(&$controller = null) {
+    function startup(Controller $controller = null) {
         /**
          * AUTHAKE CONFIGURATION
          * All these changes can be overrided in AppController->beforeFilter action
