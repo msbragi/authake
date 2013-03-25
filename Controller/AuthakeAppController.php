@@ -18,18 +18,16 @@
 	You should have received a copy of the GNU General Public License
 	along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 */
-App::uses('AppController', 'Controller');
-//App::uses('PagesController', 'Controller');
-class AuthakeAppController extends AppController {
-	var $helpers = array('Time', 'Authake.Htmlbis');
-	function __makePassword($password1, $password2) {
 
+App::uses('AppController', 'Controller');
+class AuthakeAppController extends AppController {
+	var $helpers = array('Time', 'Authake.Htmlbis', 'Paginator', 'Html', 'Form');
+	function __makePassword($password1, $password2) {
 		if ($password1 != $password2)
 		{
 			$this->Session->setFlash(__('The two passwords do not match!'), 'error');
 			return false;
 		}
-
 		return md5($password1);
 	}
 

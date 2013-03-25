@@ -221,3 +221,5 @@ border-radius: 4px;
 .table-bordered caption + thead tr:first-child th, .table-outer-bordered caption + thead tr:first-child th, .table-bordered caption + tbody tr:first-child th, .table-outer-bordered caption + tbody tr:first-child th, .table-bordered caption + tbody tr:first-child td, .table-outer-bordered caption + tbody tr:first-child td, .table-bordered colgroup + thead tr:first-child th, .table-outer-bordered colgroup + thead tr:first-child th, .table-bordered colgroup + tbody tr:first-child th, .table-outer-bordered colgroup + tbody tr:first-child th, .table-bordered colgroup + tbody tr:first-child td, .table-outer-bordered colgroup + tbody tr:first-child td, .table-bordered thead:first-child tr:first-child th, .table-outer-bordered thead:first-child tr:first-child th, .table-bordered tbody:first-child tr:first-child th, .table-outer-bordered tbody:first-child tr:first-child th, .table-bordered tbody:first-child tr:first-child td, .table-outer-bordered tbody:first-child tr:first-child td {
 border-top: 0;
 }
+
+.ui-widget { font-size: 90%; }

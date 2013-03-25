@@ -20,6 +20,10 @@
 */
 App::uses('AppModel', 'Model');
 class AuthakeAppModel extends AppModel {
+	var $useDbConfig = "authake2";
+	var $actsAs = array('Containable');
+	var $recursive = 1;
+
 	/**
 	* Get Enum Values
 	* Snippet v0.1.3
@@ -27,14 +31,38 @@ class AuthakeAppModel extends AppModel {
 	*
 	* Gets the enum values for MySQL 4 and 5 to use in selectTag()
 	*/
-	function getEnumValues($columnName=null, $respectDefault=false) {
-		if ($columnName==null)
-		{
+	function getEnumValues($columnName = null, $respectDefault = false) {
+		if ($columnName==null) {
 			return array();
 		}
+		switch($this->getDataSource()->config['datasource']) {
+			case 'Database/Mysql':
+				return $this->_mysqlGetEnumValues($columnName, $respectDefault);
+				break;
+			case 'Database/Sqlite':
+			default:
+				return $this->_defaultGetEnumValues($columnName, $respectDefault);
+				break;
+		}
+	}
 
-		//no field specified
-		//Get the name of the table
+	/*
+	 * Return enum values from DB without enums
+	 */
+	function _defaultGetEnumValues($columnName = null, $respectDefault = false) {
+		$assoc_values = array();
+		switch( $columnName ) {
+			case 'permission':
+				$assoc_values = array('0' => 'Deny', '1' => 'Allow');
+				break;
+		}
+		return $assoc_values;
+	}
+
+	/*
+	 * Return enum values from mysql
+	 */
+	function _mysqlGetEnumValues($columnName=null, $respectDefault=false) {
 		$db =& ConnectionManager::getDataSource($this->useDbConfig);
 		$tableName = $db->fullTableName($this, false);//Get the values for the specified column (database and version specific, needs testing)
 		$result = $this->query("SHOW COLUMNS FROM {$tableName} LIKE '{$columnName}'");//figure out where in the result our Types are (this varies between mysql versions)
@@ -87,8 +115,8 @@ class AuthakeAppModel extends AppModel {
 		}
 
 		return $assoc_values;
-	}
 
+	}
 	//end getEnumValues
 }
 ?>

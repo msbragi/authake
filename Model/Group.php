@@ -24,7 +24,6 @@ class Group extends AuthakeAppModel {
 	var $useTable = 'authake_groups';
 	var $recursive = 1;
 	var $hasMany = array('Rule' => array('className' => 'Authake.Rule', 'exclusive' => false, 'dependent' => false, 'foreignKey' => 'group_id', 'order' => 'Rule.order ASC' ) );
-	var $useDbConfig = 'authake';
 	var $hasAndBelongsToMany = array('User' => array('className' => 'Authake.User', 'joinTable' => 'authake_groups_users', 'foreignKey' => 'group_id', 'associationForeignKey'=> 'user_id', 'order' => 'User.id', 'displayField' => 'login' ) );
 }
 ?>

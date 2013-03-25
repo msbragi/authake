@@ -23,7 +23,6 @@ class Rule extends AuthakeAppModel {
 	var $name = 'Rule';
 	var $useTable = 'authake_rules';
 	var $belongsTo = array('Group' => array('className' => 'Authake.Group', 'foreignKey' => 'group_id', 'order' => 'Rule.order ASC' ) );
-	var $useDbConfig = 'authake';
 	function getRules($group_ids, $cleanRegex = false) {
 
 		if (is_array($group_ids))

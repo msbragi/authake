@@ -6,9 +6,13 @@
 	<?php
 	echo $this->Html->charset();
 	echo $this->Html->meta('icon');
+	$this->Html->css('/authake/css/jquery-ui.min', null, array('inline' => false));
 	$this->Html->css('/authake/css/bootstrap.min', null, array('inline' => false));
 	$this->Html->css('/authake/css/custom', null, array('inline' => false));
-	$this->Html->script('Authake.jquery-latest', array('block' => 'script'));
+	$this->Html->script('Authake.jquery-1.9.1.min', array('block' => 'script'));
+	$this->Html->script('Authake.jquery.ui.core.min', array('block' => 'script'));
+	$this->Html->script('Authake.jquery.ui.widget.min', array('block' => 'script'));
+	$this->Html->script('Authake.jquery.ui.datepicker.min', array('block' => 'script'));
 	$this->Html->script('Authake.custom', array('block' => 'script'));
 	$this->Html->script('Authake.bootstrap.min', array('block' => 'script'));
 	$this->Html->script('Authake.html5shiv', array('block' => 'script'));

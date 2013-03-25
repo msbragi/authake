@@ -1,6 +1,6 @@
 <?php
 /*
-This file is part of Authake.
+ This file is part of Authake.
 
 Author: Jérôme Combaz (jakecake/velay.greta.fr)
 Contributors: Mutlu Tevfik Kocak (mtkocak.net)
@@ -34,8 +34,8 @@ class UserController extends AuthakeAppController {
 	}
 
 	/**
-	* User profile
-	*/
+	 * User profile
+	 */
 	function index() {
 		if (!$this->Authake->getUserId())
 		{
@@ -103,11 +103,11 @@ class UserController extends AuthakeAppController {
 				switch ($state)
 				{
 					case 1:
-					$this->Session->setFlash(__('Your e-mail has been changed, you should receive a mail with instructions to confirm your new e-mail...'), 'warning', array('plugin' => 'Authake'));
-					break;
+						$this->Session->setFlash(__('Your e-mail has been changed, you should receive a mail with instructions to confirm your new e-mail...'), 'warning', array('plugin' => 'Authake'));
+						break;
 					case 2:
-					$this->Session->setFlash(sprintf(__('Failed to send a email to change your password. Please contact the administrator at %s'), Configure::read('Authake.systemReplyTo')), 'error', array('plugin' => 'Authake'));
-					break;
+						$this->Session->setFlash(sprintf(__('Failed to send a email to change your password. Please contact the administrator at %s'), Configure::read('Authake.systemReplyTo')), 'error', array('plugin' => 'Authake'));
+						break;
 					default:$this->Session->setFlash(__('The User profile has been saved'), 'success', array('plugin' => 'Authake'));
 				}
 			}
@@ -127,8 +127,8 @@ class UserController extends AuthakeAppController {
 	}
 
 	/**
-	* Confirm the email change if needed
-	*/
+	 * Confirm the email change if needed
+	 */
 	function verify($code = null) {
 		if (Configure::read('Authake.registration') == false)
 		{
@@ -170,8 +170,8 @@ class UserController extends AuthakeAppController {
 	}
 
 	/**
-	* User registration
-	*/
+	 * User registration
+	 */
 	function register() {
 		if (Configure::read('Authake.registration') == false)
 		{
@@ -256,8 +256,8 @@ class UserController extends AuthakeAppController {
 	}
 
 	/**
-	* Function which allow user to change his password if he request it
-	*/
+	 * Function which allow user to change his password if he request it
+	 */
 	function pass($code = null){
 		if ($this->Authake->getUserId() > 0)
 		{
@@ -304,8 +304,8 @@ class UserController extends AuthakeAppController {
 	}
 
 	/**
-	* Login functionality
-	*/
+	 * Login functionality
+	 */
 	function login(){
 		if ($this->Authake->isLogged())
 		{
@@ -471,14 +471,17 @@ class UserController extends AuthakeAppController {
 		$this->redirect('/');
 	}
 
-	function beforeFilter()
-	{
-		parent::beforeFilter();//Overwriting the authake layout with the default one
-
+	function beforeFilter() {
+		//Overwriting the authake layout with the default one
+		$settings = $this->Authake->getSettings();
+		$this->Authake->storeSettings($settings);
 		if (Configure::read('Authake.useDefaultLayout') == true)
 		{
 			$this->layout = 'default';
+		} else {
+			$this->layout = 'authake';
 		}
+		return true;
 	}
 }
 ?>

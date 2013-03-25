@@ -1,28 +1,28 @@
 <?php
 /*
-	This file is part of Authake.
+ This file is part of Authake.
 
-	Author: Jérôme Combaz (jakecake/velay.greta.fr)
-	Contributors: Mutlu Tevfik Kocak (mtkocak.net)
+Author: Jérôme Combaz (jakecake/velay.greta.fr)
+Contributors: Mutlu Tevfik Kocak (mtkocak.net)
 
-	Authake is free software: you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation, either version 3 of the License, or
-	(at your option) any later version.
+Authake is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 
-	Authake is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
+Authake is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 
-	You should have received a copy of the GNU General Public License
-	along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
+You should have received a copy of the GNU General Public License
+along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 */
 class UsersController extends AuthakeAppController {
 	var $uses = array('Authake.User', 'Authake.Rule');
 	var $components = array('Authake.Filter');// var $layout = 'authake';
 	var $paginate = array('limit' => 10, 'order' => array('User.login' => 'asc'));//var $scaffold;
-	
+
 	function index($tableonly = false) {
 		$this->User->recursive = 1;
 		$filter = $this->Filter->process($this);
@@ -89,6 +89,7 @@ class UsersController extends AuthakeAppController {
 		}
 
 		$user = $this->User->read(null, $id);// check if user allow to edit (only an admin can edit an admin)
+		
 		$gr = Set::extract($user, 'Group.{n}.id');
 
 		if (in_array(1, $gr) and !in_array(1, $this->Authake->getGroupIds()))
@@ -96,7 +97,6 @@ class UsersController extends AuthakeAppController {
 			$this->Session->setFlash(__('You cannot edit a user in administrators group'), 'warning');
 			$this->redirect(array('action'=>'index'));
 		}
-
 
 		if (!empty($this->request->data))
 		{// only Admin (id 1) can modify its profile (for security reasons)

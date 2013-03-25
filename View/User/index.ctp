@@ -1,6 +1,5 @@
 <div id="authake">
-<?php echo $this->element('gotohomepage'); ?>
-<div class="users view"><? //pr($user);?>
+<div class="users view">
 <h2><?php  echo __('Profile of '); echo $user['User']['login'];?></h2>
     <dl><?php $i = 0; $class = ' class="altrow"';?>
         <dt<?php if ($i % 2 == 0) echo $class;?>><?php echo __('Login'); ?></dt>
