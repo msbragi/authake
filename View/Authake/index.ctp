@@ -56,7 +56,37 @@
 			</div>
 			<div class="section-body">
 				<div class="row-fluid">
-					<?php var_dump(Configure::read('Authake')); ?>
+					<script src="http://widgets.twimg.com/j/2/widget.js" type="text/javascript">
+					</script> <script type="text/javascript">
+					new TWTR.Widget({
+						version: 2,
+						type: 'profile',
+						rpp: 20,
+						interval: 6000,
+						width: 'auto',
+						height: 500,
+						theme: {
+							shell: {
+								background: '#ffffff',
+								color: '#000000'
+							},
+							tweets: {
+								background: '#ffffff',
+								color: '#000000',
+								links: '#0748eb'
+							}
+						},
+						features: {
+							scrollbar: true,
+							loop: false,
+							live: true,
+							hashtags: true,
+							timestamp: true,
+							avatars: false,
+							behavior: 'all'
+						}
+						}).render().setUser('cakephp').start();
+						</script>
 				</div>
 			</div>
 		</div>
