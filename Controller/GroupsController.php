@@ -22,7 +22,7 @@
 
 class GroupsController extends AuthakeAppController {
 
-	
+
 	var $paginate = array(
             'limit' => 100000,
             'order' => array(
@@ -30,7 +30,7 @@ class GroupsController extends AuthakeAppController {
             )
         );
 	//var $layout = 'authake';
-    
+
     var $uses = array('Authake.Group', 'Authake.Rule');
 
 	function index($tableonly = false) {
@@ -39,15 +39,15 @@ class GroupsController extends AuthakeAppController {
         $this->set('tableonly', $tableonly);
 	}
 
-	function view($id = null, $viewactions = null) { 
-		if (!$id) {
+	function view($id = null, $viewactions = null) {
+		if ($id == null) {
 			$this->Session->setFlash(__('Invalid group.'), 'warning');
 			$this->redirect(array('action'=>'index'));
 		}
-        
+
         $this->set('group', $this->Group->read(null, $id));
         $this->set('rules', $this->Rule->getRules(array($id)));
-                
+
         if ($viewactions === 'actions')
             $this->set('actions', $this->Authake->getActionsPermissions(array($id)));
 	}
@@ -76,7 +76,7 @@ class GroupsController extends AuthakeAppController {
             $this->Session->setFlash(__('You cannot edit the group administrators'), 'warning');
             $this->redirect(array('action'=>'index'));
         }
-        
+
 		if (!empty($this->request->data)) {
 			if ($this->Group->save($this->request->data)) {
 				$this->Session->setFlash(__('The group has been saved'), 'success');
@@ -93,7 +93,7 @@ class GroupsController extends AuthakeAppController {
 // !!! CAKE BUG !!! should return array(array('id'=>'login), ...)
 // resolved in https://trac.cakephp.org/changeset/6360
         $users = $this->Group->User->find('list', array("fields"=>array("User.id", "User.login")));
-        
+
 /*
         $users = $this->Group->User->find('all');
         $users = Set::combine($users, '{n}.User.id', '{n}.User.login');
