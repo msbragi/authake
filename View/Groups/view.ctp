@@ -26,7 +26,7 @@
 										Delete Group
 									</a>
 									</li>
-							<?php } ?> 
+							<?php } ?>
 						</ul>
 					</div>
 				</div>
@@ -47,7 +47,8 @@
 						</thead>
 						<tbody>
 							<?php
-								foreach ($group['User'] as $user):
+							if($group['User']) {
+								foreach ($group['User'] as $user) {
 							?>
 						        <tr>
 						            <td><?php echo $this->Html->link($user['login'], array('controller'=> 'users', 'action'=>'view', $user['id']));?></td>
@@ -79,7 +80,10 @@
 										</div>
 						            </td>
 						        </tr>
-						    <?php endforeach; ?>
+						    <?php
+						    	}
+						    }
+						    ?>
 						</tbody>
 					</table>
 					<div class="well well-small">

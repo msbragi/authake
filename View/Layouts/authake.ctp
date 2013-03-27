@@ -27,7 +27,8 @@
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
-					<a class="brand" href="									<?php echo $this->Html->url( array('action'=>'index', 'controller'=>'authake')); ?>">Authake</a>
+					<a class="brand" href="									
+					<?php echo $this->Html->url('/'); ?>">Authake</a>
 					<ul class="nav pull-left">
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Users <b class="caret"></b></a>

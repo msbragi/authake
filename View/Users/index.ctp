@@ -64,38 +64,26 @@
 						<div class="span12">
                             <ul class="nav nav-pills" style="margin-top:4px;margin-bottom:0">
                                 <li class="active">
-
                                         <?php echo $this->Paginator->sort('id');?>
-
                                 </li>
                                 <li class="">
-
                                         <?php echo $this->Paginator->sort('login');?>
 
                                 </li>
                                 <li class="">
-
                                         <?php echo $this->Paginator->sort('email');?>
-
                                 </li>
                                 <li class="">
-
                                         <a href="#"><?php echo 'Group';?></a>
-
                                 </li>
                                 <li class="">
-
                                         <?php echo $this->Paginator->sort('created');?>
-                    
                                 </li>
                                 <li class="">
-
                                         <?php echo $this->Paginator->sort(__('Disabled'), 'disable');?>
-                                    
                                 </li>
                             </ul>
                         </div>
-                        
 					</div>
 				</div>
 				<table class="table table-outer-bordered">
