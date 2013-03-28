@@ -9,6 +9,7 @@ Authake is finally arrived to CakePHP 2.2.3 and is (another) solution to manage 
 <li>Settings save and restore
 <li>Up & run with SQLite storage instead of mysql
 <li>Some little changes in interface
+</ol>
 <p>
 <h3>SQLite config:</h3>
 // Add to database.php
