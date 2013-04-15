@@ -22,34 +22,31 @@ App::uses('AuthakeAppModel', 'Authake.Model');
 class Rule extends AuthakeAppModel {
 	var $name = 'Rule';
 	var $useTable = 'authake_rules';
-	var $belongsTo = array('Group' => array('className' => 'Authake.Group', 'foreignKey' => 'group_id', 'order' => 'Rule.order ASC' ) );
-	function getRules($group_ids, $cleanRegex = false) {
+	var $belongsTo = array(
+		'Group' => array(
+			'className' => 'Authake.Group',
+			'foreignKey' => 'group_id',
+			'order' => 'Rule.order ASC'
+		)
+	);
 
-		if (is_array($group_ids))
-		{
+	function getRules($group_ids, $cleanRegex = false) {
+		if (is_array($group_ids)) {
 			//if no group get rules for the all users (with group_id is null)
 			$groups = implode(',', $group_ids);
-			$conditions = "Rule.group_id IN ({$groups}) OR Rule.group_id is NULL";
+			$conditions = "Rule.group_id IN (0,{$groups}) OR Rule.group_id is NULL";
+		} else {
+			$conditions = 'Rule.group_id is NULL OR Rule.group_id = 0';
 		}
-		else
-		{
-			$conditions = 'Rule.group_id is NULL';
-		}
-
 		$fields = '';
-		$order = 'Rule.order ASC, Rule.group_id ASC';
-		$data = $this->find('all', array('conditions'=>$conditions, 'fields'=>$fields, 'order'=>$order, 'contain'=>array()));
-
-		if ($cleanRegex)
-		{
+		$order  = 'Rule.order ASC, Rule.group_id ASC';
+		$data   = $this->find('all', array('conditions'=>$conditions, 'fields'=>$fields, 'order'=>$order, 'contain'=>array()));
+		if ($cleanRegex) {
 			$nb = count($data);
-
-			for ($i=0; $i<$nb; $i++)
-			{
+			for ($i=0; $i<$nb; $i++) {
 				$data[$i]['Rule']['action'] = str_replace(array('/','*', ' or '), array('\/', '.*', '|'), $data[$i]['Rule']['action']);
 			}
 		}
-
 		return $data;
 	}
 }
