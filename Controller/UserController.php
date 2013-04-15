@@ -31,6 +31,7 @@ class UserController extends AuthakeAppController {
 	{// display this view if you want to say something important to your users.
 		// For example (your password was changed and you need to receive mail to
 		// confirm it.)
+		$this->redirect('/');
 	}
 
 	/**
@@ -118,7 +119,7 @@ class UserController extends AuthakeAppController {
 			}
 			else
 			{
-				$this->redirect(array('action'=>'messages'));
+				$this->redirect(array('action'=>'message'));
 			}
 		}
 
@@ -473,6 +474,7 @@ class UserController extends AuthakeAppController {
 
 	function beforeFilter() {
 		//Overwriting the authake layout with the default one
+		parent::beforeFilter();
 		$settings = $this->Authake->getSettings();
 		$this->Authake->storeSettings($settings);
 		if (Configure::read('Authake.useDefaultLayout') == true)
