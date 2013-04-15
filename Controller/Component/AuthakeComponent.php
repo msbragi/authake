@@ -21,7 +21,6 @@ along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 class AuthakeComponent extends Component {
-
 	var $components = array('Session');
 	var $_forward = null;
 	var $_flashmessage = '';
@@ -37,16 +36,16 @@ class AuthakeComponent extends Component {
 		$settings = $this->getSettings($setting_id);
 		Configure::write("Authake", $settings);
 	}
-	
+
 	/*
 	 * Store settings in Config
 	 */
 	function storeSettings($settings = array()) {
 		Configure::write("Authake", $settings);
 	}
-	
+
 	/*
-	 * Get settings from DB 
+	 * Get settings from DB
 	 * if not found store default settings
 	 */
 	function getSettings( $id = 1 ) {
@@ -68,7 +67,7 @@ class AuthakeComponent extends Component {
 	}
 
 	/*
-	 * Store settings Into DB 
+	 * Store settings Into DB
 	 * $data an array of Setting['data']
 	 * $reset boolean if you want to restore default setting
 	 */
@@ -81,14 +80,14 @@ class AuthakeComponent extends Component {
 		if(!$settings) {
 			$this->Session->setFlash(__('Error settings array not valid'), 'error');
 			return array();
-		} 
-		
+		}
+
 		$data = array(
 			'id'   => 1,
 			'name' => 'Default settings',
-			'data' => json_encode($settings) 
+			'data' => json_encode($settings)
 		);
-		
+
 		if(!$model->save($data)) {
 			$this->Session->setFlash(__('Error save settings'), 'error');
 			return array();
@@ -96,7 +95,7 @@ class AuthakeComponent extends Component {
 		$this->Session->setFlash(__('Settings saved'), 'info');
 		return $settings;
 	}
-	
+
 	/*
 	 * Set an array of default settings based on installation
 	 */
@@ -118,12 +117,12 @@ class AuthakeComponent extends Component {
 			'passwordVerify'      => true,                   // Verify by confirmation link
 			'registration'        => false,                  // User cannot register
 			'defaultGroup'        => 2,                      // Default group for registered user
-			'useDefaultLayout'    => true,                  // Use site layout for user controller
+			'useDefaultLayout'    => true,                   // Use site layout for user controller
 			'useEmailAsUsername'  => false,                  // Use email instead of login name
 		);
 		return $settings;
 	}
-	
+
 	function beforeFilter(&$controller, $setting_id = 1) {
 		//Getting vars
 		$this->startup(&$controller, $setting_id);
@@ -253,10 +252,9 @@ class AuthakeComponent extends Component {
 		$rules = $this->getRules($group_ids);
 		foreach ($rules as $data) {
 			if (preg_match("/^({$data['Rule']['action']})$/i", $url, $matches)) {
-				$allow = $data['Rule']['permission']; //echo $allow.'=>'.$url.' ** '.$data['Rule']['action'];
+				$allow = (int) $data['Rule']['permission']; //echo $allow.'=>'.$url.' ** '.$data['Rule']['action'];
 				//The Enum database type has to be changed to boolean, False for deny, True for allow
 				if ($allow == false) {
-					$allow = false;
 					$this->_forward = $data['Rule']['forward'];
 					$this->_flashmessage = $data['Rule']['message'];
 				} else {
