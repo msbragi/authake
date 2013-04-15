@@ -20,7 +20,7 @@
 */
 
 class AuthakeHelper extends AppHelper {
-  
+
     var $helpers = array('Session','Authake.Gravatar','Html');
 
     function getUserId() {
@@ -32,11 +32,11 @@ class AuthakeHelper extends AppHelper {
     }
 
     function getUserMenu() {
-	
+
  	if($this->getLogin()){
 		$output = '<li class="dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">'.
-			$this->Gravatar->get_gravatar($this->getUserEmail(),18,'','',true).'&nbsp;'. 
+			$this->Gravatar->get_gravatar($this->getUserEmail(),18,'','',true).'&nbsp;'.
 			$this->getLogin().'<b class="caret"></b></a>
 			<ul class="dropdown-menu">
 				<li><a href="'.$this->Html->url( array('controller'=>'user','action'=>'index')).'">Profile Settings</a></li>
@@ -73,7 +73,36 @@ class AuthakeHelper extends AppHelper {
     function isMemberOf($gid) {
         return in_array($gid, $this->getGroupIds());
     }
-   
+
+    function isMemberOfGroup($gname, $case = false) {
+    	if($case) {
+    		return in_array($gname, $this->getGroupNames());
+    	} else {
+    		$a = $this->getGroupNames();
+    		foreach( $a as $v ) {
+    			$gname = strtolower($gname);
+    			if($gname == strtolower($v)) {
+    				return true;
+    			}
+    		}
+    	}
+    	return false;
+    }
+
+    // Function to check the access for the controller / action
+    function isAllowed($url = "") {
+    	$allow = false;
+    	$rules = $this->Session->read('Authake.cacheRules');
+    	if(@$rules) {
+    		foreach( $rules as $data ) {
+    			if(preg_match("/^({$data['Rule']['action']})$/i", $url, $matches)) {
+    				$allow = (int) $data['Rule']['permission'];
+    			}
+    		}
+    	}
+    	return $allow;
+    }
+
 }
-    
+
 ?>
