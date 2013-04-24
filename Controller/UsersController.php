@@ -139,7 +139,7 @@ class UsersController extends AuthakeAppController {
 			}
 
 			// delete user-group relation if selection empty
-			unset($this->request->data['User']['login']);// never change the login
+			// unset($this->request->data['User']['login']);// never change the login
 			// save user
 
 			if ($this->User->save($this->request->data))

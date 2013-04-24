@@ -24,6 +24,12 @@
 						<div class="string control-group stringish" id="ExternalId">
 							<?php echo $this->Form->input('external_id', array('type' => 'text', 'label'=>array('text'=>__('Id to external data'),'class'=>'control-label'),'style'=>'width: 15em;', 'between'=>'<div class="controls">', 'after'=>'</div>'));?>
 						</div>
+						<div class="string control-group stringish" id="UserLogin">
+							<?php echo $this->Form->input('login', array('type' => 'text', 'label'=>array('text'=>__('Login'),'class'=>'control-label'),'style'=>'width: 15em;', 'between'=>'<div class="controls">', 'after'=>'</div>'));?>
+						</div>
+						<div class="string control-group stringish" id="UserName">
+							<?php echo $this->Form->input('name', array('type' => 'text', 'label'=>array('text'=>__('Name'),'class'=>'control-label'),'style'=>'width: 15em;', 'between'=>'<div class="controls">', 'after'=>'</div>'));?>
+						</div>
 						<div class="string control-group stringish" id="Group">
 							<?php echo $this->Form->input('Group', array('label'=>array('text'=>__('In groups Press \'Control\' for multi-selection'),'class'=>'control-label'),'style'=>'width: 15em;', 'between'=>'<div class="controls">', 'after'=>'</div>'));?>
 						</div>
