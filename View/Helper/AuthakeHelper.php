@@ -91,6 +91,9 @@ class AuthakeHelper extends AppHelper {
 
     // Function to check the access for the controller / action
     function isAllowed($url = "") {
+        if (is_array($url)) {
+    		$url = $this->cleanUrl($url) ;
+    	}
     	$allow = false;
     	$rules = $this->Session->read('Authake.cacheRules');
     	if(@$rules) {
@@ -103,6 +106,10 @@ class AuthakeHelper extends AppHelper {
     	return $allow;
     }
 
+	private function cleanUrl($url) {
+		$clurl = array_intersect_key($url, array("controller" => '', "action" => '', "prefix" => '', "admin" => ''));
+		return Router::url($clurl + array("base" => false));
+	}
 }
-
+	
 ?>

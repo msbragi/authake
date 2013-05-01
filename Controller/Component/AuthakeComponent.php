@@ -132,10 +132,14 @@ class AuthakeComponent extends Component {
 
 		$loginAction = Configure::read('Authake.loginAction');
 
-		// TODO make compatible with standard urls
-		//if (Router::url($controller->request->params + array("base" => false)) != Router::url($loginAction + array("base" => false)) ) {
-		//	$this->setPreviousUrl(null);
-		//}
+		if(!is_array($loginAction)) {
+			$loginAction = Router::normalize($loginAction);
+			$loginAction = Router::parse($loginAction);
+		}
+		
+		if (Router::url($controller->request->params + array("base" => false)) != Router::url($loginAction + array("base" => false)) ) {
+			$this->setPreviousUrl(null);
+		}
 
 		// check session timeout
 		$tm = Configure::read('Authake.sessionTimeout');
@@ -151,6 +155,7 @@ class AuthakeComponent extends Component {
 		}
 
 		if (!$this->isAllowed($path)) { // check for permissions
+
 			if ($this->isLogged()) { // if denied & logged, write a message
 				if ($this->_flashmessage) { // message from the rule (accept path in %s)
 					$this->Session->setFlash(sprintf(__($this->_flashmessage), $path), 'error');    // Set Flash message
