@@ -21,7 +21,7 @@ along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 class AuthakeComponent extends Component {
-	var $components = array('Session');
+	var $components = array('Session', 'RequestHandler');
 	var $_forward = null;
 	var $_flashmessage = '';
 
@@ -32,9 +32,13 @@ class AuthakeComponent extends Component {
 		parent::__construct($collection, $settings);
 	}
 
-	function startup(Controller $controller = null, $setting_id = 1) {
-		$settings = $this->getSettings($setting_id);
-		Configure::write("Authake", $settings);
+	function startup(Controller $controller = null) {
+		if($this->Session->check('Authake.Settings')) {
+			$settings = $this->Session->read('Authake.Settings');
+		} else {
+			$settings = $this->getSettings();
+		}
+		$this->storeSettings( $settings );
 	}
 
 	/*
@@ -42,6 +46,7 @@ class AuthakeComponent extends Component {
 	 */
 	function storeSettings($settings = array()) {
 		Configure::write("Authake", $settings);
+		$this->Session->write('Authake.Settings', $settings);
 	}
 
 	/*
@@ -56,7 +61,6 @@ class AuthakeComponent extends Component {
 		if($data && @$data['Setting']['data']) {
 			$settings = json_decode($data['Setting']['data'], true);
 		} else {
-			// No settings found Store and get default settings
 			$settings = $this->saveSettings(null, true);
 		}
 		if(!$settings) {
@@ -103,22 +107,22 @@ class AuthakeComponent extends Component {
 		/**
 		 * Base URL, used to insert the application URL in mails.
 		 */
-		$baseUrl = Router::url('/', true);
+
 		$settings = array(
-			'baseUrl'             => $baseUrl,               // set the full application url
-			'service'             => 'Authake',              // Name of the service i.e. "Super Authake"
-			'loginAction'         => '/authake/user/login',  // Default login action
-			'loggedAction'        => $baseUrl,               // Default logged in action
-			'sessionTimeout'      => (3600 * 24 * 7),        // Session timeout
-			'defaultDeniedAction' => '/authake/user/denied', // Denied action
-			'rulesCacheTimeout'   => 300,                    // reload rules every seconds
-			'systemEmail'         => 'noreply@example.com',  // System email
-			'systemReplyTo'       => 'noreply@example.com',  // Replay address
-			'passwordVerify'      => true,                   // Verify by confirmation link
-			'registration'        => false,                  // User cannot register
-			'defaultGroup'        => 2,                      // Default group for registered user
-			'useDefaultLayout'    => true,                   // Use site layout for user controller
-			'useEmailAsUsername'  => false,                  // Use email instead of login name
+			'baseUrl'             => Router::url('/', true),   // set the application url
+			'service'             => 'Authake',                // Name of the service i.e. "Super Authake"
+			'loginAction'         => '/authake/user/login',    // Default login action
+			'loggedAction'        => '/',                      // Default logged in action
+			'sessionTimeout'      => (3600 * 24 * 7),          // Session timeout
+			'defaultDeniedAction' => '/authake/user/denied',   // Denied action
+			'rulesCacheTimeout'   => 300,                      // reload rules every seconds
+			'systemEmail'         => 'noreply@example.com',    // System email
+			'systemReplyTo'       => 'noreply@example.com',    // Replay address
+			'passwordVerify'      => false,                    // Verify by confirmation link
+			'registration'        => false,                    // User cannot register
+			'defaultGroup'        => 1,                        // Default group for registered user
+			'useDefaultLayout'    => true,                     // Use site layout for user controller
+			'useEmailAsUsername'  => false,                    // Use email instead of login name
 		);
 		return $settings;
 	}
@@ -136,7 +140,7 @@ class AuthakeComponent extends Component {
 			$loginAction = Router::normalize($loginAction);
 			$loginAction = Router::parse($loginAction);
 		}
-		
+
 		if (Router::url($controller->request->params + array("base" => false)) != Router::url($loginAction + array("base" => false)) ) {
 			$this->setPreviousUrl(null);
 		}
@@ -149,7 +153,12 @@ class AuthakeComponent extends Component {
 				$this->setPreviousUrl($path);
 				$this->logout();
 				$this->Session->setFlash(__('Your session expired'), 'warning');
-				$controller->redirect($loginAction);
+				if($this->Request->is('ajax')) {
+					echo __('Your session expired');
+					die();						
+				} else {
+					$controller->redirect($loginAction);
+				}
 			}
 			$this->setTimestamp();
 		}
@@ -160,14 +169,21 @@ class AuthakeComponent extends Component {
 				if ($this->_flashmessage) { // message from the rule (accept path in %s)
 					$this->Session->setFlash(sprintf(__($this->_flashmessage), $path), 'error');    // Set Flash message
 				}
-
 				$fw = $this->_forward ? $this->_forward : Configure::read('Authake.defaultDeniedAction');
-				$controller->redirect($fw);
+				if($this->Request->is('ajax')) {
+					die();						
+				} else {
+					$controller->redirect($fw);
+				}
 			} else { // if denied & not loggued, propose to log in
 				$this->setPreviousUrl($path);
 				$strpath = Router::url($path + array("base" => false));
 				$this->Session->setFlash(sprintf(__('You have to log in to access %s'), $strpath), 'warning');
-				$controller->redirect($loginAction);
+				if($this->Request->is('ajax')) {
+					die();						
+				} else {
+					$controller->redirect($loginAction);
+				}
 			}
 			$this->_flashmessage = '';
 		}
@@ -228,18 +244,23 @@ class AuthakeComponent extends Component {
 	}
 
 	function getRules($group_ids = null) {
-		$force_reload = (time() - $this->Session->read('Authake.cacheRulesTime')) > Configure::read('Authake.rulesCacheTimeout');
+		$force_reload = ($group_ids !== null); // Groups passed ?
 
-		if ($force_reload
-		|| is_array($group_ids)
-		//|| ($cacheRules = $this->Session->read('Authake.cacheRules')) === null
-		|| $cacheRules = null === null
-		) {
+		if(!$force_reload) { // If Not Groups passed check if valid time
+			$force_reload = (time() - $this->Session->read('Authake.cacheRulesTime')) > Configure::read('Authake.rulesCacheTimeout');
+		}
+
+		if(!$force_reload) { // If valid time verify that we have valid data cached
+			$cacheRules = $this->Session->read('Authake.cacheRules');
+			$force_reload = empty($cacheRules);
+		}
+
+		if ($force_reload) {
 			App::import("Model", "Authake.Rule");
 			$rule = new Rule;
 			$cacheRules = $rule->getRules(is_array($group_ids) ? $group_ids : $this->getGroupIds(), true); // use groups provided or take groups of the users
 
-			if ($group_ids === null) { // cache only if groups of user used
+			if ($group_ids === null) { // cache only if no groups of user used
 				$this->Session->write('Authake.cacheRules', $cacheRules);
 				$this->Session->write('Authake.cacheRulesTime', time());
 			}

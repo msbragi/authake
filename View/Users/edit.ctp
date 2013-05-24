@@ -31,7 +31,7 @@
 							<?php echo $this->Form->input('name', array('type' => 'text', 'label'=>array('text'=>__('Name'),'class'=>'control-label'),'style'=>'width: 15em;', 'between'=>'<div class="controls">', 'after'=>'</div>'));?>
 						</div>
 						<div class="string control-group stringish" id="Group">
-							<?php echo $this->Form->input('Group', array('label'=>array('text'=>__('In groups Press \'Control\' for multi-selection'),'class'=>'control-label'),'style'=>'width: 15em;', 'between'=>'<div class="controls">', 'after'=>'</div>'));?>
+							<?php echo $this->Form->input('Group', array('label'=>array('text'=>__('In groups Press \'Control\' for multi-selection'),'class'=>'control-label'),'style'=>'width: 15em;', 'between'=>'<div class="controls">', 'after'=>'</div>', 'multiple' => 'checkbox'));?>
 						</div>
 						<div class="string control-group stringish" id="Email">
 							<?php echo $this->Form->input('email', array('label'=>array('text'=>__('Email'),'class'=>'control-label'),'size'=>'40', 'between'=>'<div class="controls">', 'after'=>'<span class="help-inline">User\'s email address. Choose a real one. Confirmation goes to this email.</span></div>'));?>
@@ -51,7 +51,7 @@
 						</div>
 						<div class="string control-group stringish" id="Email">
 							<div class="controls">
-								<label class="checkbox"> <?php 
+								<label class="checkbox"> <?php
 								echo $this->Form->checkbox('disable');
 								?> Disable User
 								</label>

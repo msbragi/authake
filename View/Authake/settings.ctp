@@ -14,7 +14,6 @@ $this->Html->addCrumb('Authake Settings', $this->Html->url( null, true )); ?>
 				<?php echo $this->Form->create('Settings');?>
 				<div class="form-horizontal">
 					<fieldset class="inputs">
-						<legend>Authake Settings</legend>
 						<div class="string control-group stringish" id="baseUrl">
 							<?php echo $this->Form->input('baseUrl', array('value'=>$configs['baseUrl'],'type'=>'text','label'=>array('text'=>__('Base URL'),'class'=>'control-label'),'between'=>'<div class="controls">', 'after'=>'<span class="help-inline">Base URL, used to insert the application URL in mails.</span></div>'));?>
 						</div>
@@ -45,7 +44,7 @@ $this->Html->addCrumb('Authake Settings', $this->Html->url( null, true )); ?>
 						<div class="string control-group stringish" id="passwordVerify">
 							<div class="controls">
 									<label class="checkbox">
-											<?php 
+											<?php
 											if($configs['passwordVerify'])
 											{
 												echo $this->Form->checkbox('passwordVerify', array('value'=>$configs['passwordVerify'], 'checked'=>'checked'));
@@ -62,7 +61,7 @@ $this->Html->addCrumb('Authake Settings', $this->Html->url( null, true )); ?>
 						<div class="string control-group stringish" id="registration">
 							<div class="controls">
 									<label class="checkbox">
-										<?php 
+										<?php
 										if($configs['registration'])
 										{
 											echo $this->Form->checkbox('registration', array('value'=>$configs['registration'], 'checked'=>'checked'));
@@ -81,7 +80,7 @@ $this->Html->addCrumb('Authake Settings', $this->Html->url( null, true )); ?>
 						<div class="string control-group stringish" id="useDefaultLayout">
 							<div class="controls">
 									<label class="checkbox">
-										<?php 
+										<?php
 										if($configs['useDefaultLayout'])
 										{
 											echo $this->Form->checkbox('useDefaultLayout', array('value'=>$configs['useDefaultLayout'], 'checked'=>'checked'));
@@ -98,7 +97,7 @@ $this->Html->addCrumb('Authake Settings', $this->Html->url( null, true )); ?>
 						<div class="string control-group stringish" id="useEmailAsUsername">
 							<div class="controls">
 									<label class="checkbox">
-									<?php 
+									<?php
 									if($configs['useEmailAsUsername'])
 									{
 										echo $this->Form->checkbox('useEmailAsUsername', array('value'=>$configs['useEmailAsUsername'], 'checked'=>'checked'));
