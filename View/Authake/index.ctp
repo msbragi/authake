@@ -52,41 +52,12 @@
 	<div class="span6">
 		<div class="section section-small">
 			<div class="section-header">
-				<h5>News from the Author</h5>
+				<h5>News from the Cakephp</h5>
 			</div>
 			<div class="section-body">
 				<div class="row-fluid">
-					<script src="http://widgets.twimg.com/j/2/widget.js" type="text/javascript">
-					</script> <script type="text/javascript">
-					new TWTR.Widget({
-						version: 2,
-						type: 'profile',
-						rpp: 20,
-						interval: 6000,
-						width: 'auto',
-						height: 500,
-						theme: {
-							shell: {
-								background: '#ffffff',
-								color: '#000000'
-							},
-							tweets: {
-								background: '#ffffff',
-								color: '#000000',
-								links: '#0748eb'
-							}
-						},
-						features: {
-							scrollbar: true,
-							loop: false,
-							live: true,
-							hashtags: true,
-							timestamp: true,
-							avatars: false,
-							behavior: 'all'
-						}
-						}).render().setUser('cakephp').start();
-						</script>
+					<a class="twitter-timeline"  href="https://twitter.com/cakephp"  data-widget-id="337855099516907520">Tweets di @cakephp</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 				</div>
 			</div>
 		</div>
