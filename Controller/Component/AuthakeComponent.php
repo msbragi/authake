@@ -155,7 +155,7 @@ class AuthakeComponent extends Component {
 				$this->Session->setFlash(__('Your session expired'), 'warning');
 				if($this->RequestHandler->isAjax()) {
 					echo __('Your session expired');
-					die();						
+					die();
 				} else {
 					$controller->redirect($loginAction);
 				}
@@ -171,7 +171,7 @@ class AuthakeComponent extends Component {
 				}
 				$fw = $this->_forward ? $this->_forward : Configure::read('Authake.defaultDeniedAction');
 				if($this->RequestHandler->isAjax()) {
-					die();						
+					die();
 				} else {
 					$controller->redirect($fw);
 				}
@@ -180,7 +180,7 @@ class AuthakeComponent extends Component {
 				$strpath = Router::url($path + array("base" => false));
 				$this->Session->setFlash(sprintf(__('You have to log in to access %s'), $strpath), 'warning');
 				if($this->RequestHandler->isAjax()) {
-					die();						
+					die();
 				} else {
 					$controller->redirect($loginAction);
 				}

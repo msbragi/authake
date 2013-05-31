@@ -475,6 +475,10 @@ class UserController extends AuthakeAppController {
 	function beforeFilter() {
 		//Overwriting the authake layout with the default one
 		parent::beforeFilter();
+		if (Configure::read('Authake.useDefaultLayout') == true) {
+			$this->layout = 'default';
+		}
+/*
 		$settings = $this->Authake->getSettings();
 		$this->Authake->storeSettings($settings);
 		if (Configure::read('Authake.useDefaultLayout') == true)
@@ -484,6 +488,7 @@ class UserController extends AuthakeAppController {
 			$this->layout = 'authake';
 		}
 		return true;
+*/
 	}
 }
 ?>
