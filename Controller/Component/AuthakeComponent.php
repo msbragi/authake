@@ -132,17 +132,13 @@ class AuthakeComponent extends Component {
 		$this->startup(&$controller, $setting_id);
 
 		// get action path
-		$path = $controller->request->params;
+		$path = $this->cleanUrl($controller->request->params);
 
-		$loginAction = Configure::read('Authake.loginAction');
+		// get login action
+		$loginAction = $this->cleanUrl(Configure::read('Authake.loginAction'));
 
-		if(!is_array($loginAction)) {
-			$loginAction = Router::normalize($loginAction);
-			$loginAction = Router::parse($loginAction);
-		}
-
-		if (Router::url($controller->request->params + array("base" => false)) != Router::url($loginAction + array("base" => false)) ) {
-			$this->setPreviousUrl(null);
+		if($loginAction !== $path) {
+			$this->setPreviousUrl($path);
 		}
 
 		// check session timeout
@@ -177,7 +173,7 @@ class AuthakeComponent extends Component {
 				}
 			} else { // if denied & not loggued, propose to log in
 				$this->setPreviousUrl($path);
-				$strpath = Router::url($path + array("base" => false));
+				$strpath = $path;
 				$this->Session->setFlash(sprintf(__('You have to log in to access %s'), $strpath), 'warning');
 				if($this->RequestHandler->isAjax()) {
 					die();
@@ -271,9 +267,7 @@ class AuthakeComponent extends Component {
 
 	// Function to check the access for the controller / action
 	function isAllowed($url = "", $group_ids = null) { // $checkStr: "/name/action/" $group_ids: check again thess groups
-		if (is_array($url)) {
-			$url = $this->cleanUrl($url) ;
-		}
+		$url = $this->cleanUrl($url) ;
 		$allow = false;
 		$rules = $this->getRules($group_ids);
 		foreach ($rules as $data) {
@@ -354,8 +348,11 @@ class AuthakeComponent extends Component {
 	}
 
 	private function cleanUrl($url) {
-		$clurl = array_intersect_key($url, array("controller" => '', "action" => '', "prefix" => '', "admin" => ''));
-		return Router::url($clurl + array("base" => false));
+		if(is_array($url)) {
+			$url = array_intersect_key($url, array("controller" => '', "action" => '', "prefix" => '', "admin" => ''));
+			$url = Router::url($url + array("base" => false));
+		}
+		return $url;
 	}
 }
 

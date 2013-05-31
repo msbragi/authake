@@ -360,33 +360,25 @@ class UserController extends AuthakeAppController {
 			}
 
 			$userdata = $this->User->getLoginData($login, $password);
-
 			if (empty($userdata))
 			{
 				$this->Session->setFlash(__('Invalid login or password!'), 'error', array('plugin' => 'Authake'));
 				return;
 			}
-			else
-			{
-				if ($user['User']['passwordchangecode'] != '')
-				{//clear password change code (if there is any)
-					$this->User->unbindModel(array('hasAndBelongsToMany'=>array('Group')), false);
-					$user['User']['passwordchangecode'] = '';
-					$this->User->save($user);
-				}
-
-				$this->Authake->login($userdata['User']);
-				$this->Session->setFlash(__('You are logged in as ').$userdata['User']['login'], 'success' , array('plugin'=>'authake'));
-
-				if (($next = $this->Authake->getPreviousUrl()) !== null)
-				{
-					$this->redirect($next);
-				}
-				else
-				{
-					$this->redirect(Configure::read('Authake.loggedAction'));
-				}
+			$gotoUrl = $this->Authake->getPreviousUrl();
+			if ($user['User']['passwordchangecode'] != '')
+			{//clear password change code (if there is any)
+				$this->User->unbindModel(array('hasAndBelongsToMany'=>array('Group')), false);
+				$user['User']['passwordchangecode'] = '';
+				$this->User->save($user);
 			}
+
+			$this->Authake->login($userdata['User']);
+			$this->Session->setFlash(__('You are logged in as ').$userdata['User']['login'], 'success' , array('plugin'=>'authake'));
+
+			$gotoUrl = $gotoUrl ? $gotoUrl : Configure::read('Authake.loggedAction');
+
+			$this->redirect($gotoUrl);
 		}
 	}
 
