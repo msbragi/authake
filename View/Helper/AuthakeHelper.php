@@ -41,13 +41,13 @@ class AuthakeHelper extends AppHelper {
 			<ul class="dropdown-menu">
 				<li><a href="'.$this->Html->url( array('controller'=>'user','action'=>'index')).'">Profile Settings</a></li>
 				<li class="divider"></li>
-				<li>'.$this->Html->link(__('Logout'), array('controller'=> 'user', 'action'=>'logout')).'</li>
+				<li>'.$this->Html->link(__d('authake','Logout'), array('controller'=> 'user', 'action'=>'logout')).'</li>
 			</ul>
 		</li>';
 		}
 		else
 		{
-		$output = '<li>'.$this->Html->link(__('Login'), array('controller'=> 'user', 'action'=>'login')).'</li>';
+		$output = '<li>'.$this->Html->link(__d('authake','Login'), array('controller'=> 'user', 'action'=>'login')).'</li>';
 		}
         return $output;
     }
@@ -67,7 +67,7 @@ class AuthakeHelper extends AppHelper {
 
     function getGroupNames() {
         $gn = $this->Session->read('Authake.group_names');
-        return (is_array($gn) ? $gn : array(__('Guest')));
+        return (is_array($gn) ? $gn : array(__d('authake','Guest')));
     }
 
     function isMemberOf($gid) {

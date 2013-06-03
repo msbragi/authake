@@ -33,7 +33,7 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Users <b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li><?php echo $this->Html->link(__('New User'), array('controller'=>'users','action'=>'add')); ?></li>
+								<li><?php echo $this->Html->link(__d('authake','New User'), array('controller'=>'users','action'=>'add')); ?></li>
 								<li class="divider"></li>
 								<li><a href="<?php echo $this->Html->url( array('controller'=>'users','action'=>'index')); ?>"><i class="icon-th-list"> </i> All Users</a></li>
 							</ul>
@@ -41,7 +41,7 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Groups <b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li><?php echo $this->Html->link(__('New Group'), array('controller'=>'groups','action'=>'add')); ?></li>
+								<li><?php echo $this->Html->link(__d('authake','New Group'), array('controller'=>'groups','action'=>'add')); ?></li>
 								<li class="divider"></li>
 								<li><a href="<?php echo $this->Html->url( array('controller'=>'groups','action'=>'index')); ?>"><i class="icon-th-list"> </i> All Groups</a></li>
 							</ul>
@@ -49,7 +49,7 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Rules <b class="caret"></b></a>
 							<ul class="dropdown-menu">
-								<li><?php echo $this->Html->link(__('New Rule'), array('controller'=>'rules','action'=>'add')); ?></li>
+								<li><?php echo $this->Html->link(__d('authake','New Rule'), array('controller'=>'rules','action'=>'add')); ?></li>
 								<li class="divider"></li>
 								<li><a href="<?php echo $this->Html->url( array('controller'=>'rules','action'=>'index')); ?>"><i class="icon-th-list"> </i> All Rules</a></li>
 							</ul>

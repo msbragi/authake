@@ -6,11 +6,11 @@ $up = null;
 	<div class="container">
 		<div class="section">
 			<div class="section-header">
-				<h3><?php echo __('Groups');?>
+				<h3><?php echo __d('authake','Groups');?>
 					<small>
 						<?php
 					echo $this->Paginator->counter(array(
-						'format' => __('There are %current% groups on this system.')
+						'format' => __d('authake','There are %current% groups on this system.')
 							));
 						?>
 					</small>

@@ -1,0 +1,765 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2013-06-03 11:13+0200\n"
+"PO-Revision-Date: 2013-06-03 11:59+0100\n"
+"Last-Translator: Marco Sbragi <m.sbragi@nospace.net>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Poedit 1.5.5\n"
+
+#: Controller/AuthakeAppController.php:28 Controller/UserController.php:57
+msgid "The two passwords do not match!"
+msgstr "Le due password sono diverse!"
+
+#: Controller/GroupsController.php:44
+msgid "Invalid group."
+msgstr "Gruppo non valido."
+
+#: Controller/GroupsController.php:59;82
+msgid "The group has been saved"
+msgstr "Il gruppo è stato salvato"
+
+#: Controller/GroupsController.php:62
+msgid "The group could not be saved. Please, try again"
+msgstr "Il gruppo non può essere salvato. prova di nuovo."
+
+#: Controller/GroupsController.php:71
+msgid "Invalid group"
+msgstr "Gruppo non valido."
+
+#: Controller/GroupsController.php:76
+msgid "You cannot edit the group administrators"
+msgstr "Non è possibile modificare il gruppo \"administrators\"."
+
+#: Controller/GroupsController.php:84
+msgid "The group could not be saved. Please, try again."
+msgstr "Il gruppo non può essere salvato. prova di nuovo."
+
+#: Controller/GroupsController.php:106
+msgid "Impossible to delete this group"
+msgstr "Impossibile cancellare questo gruppo."
+
+#: Controller/GroupsController.php:110
+msgid "Group deleted"
+msgstr "Gruppo cancellato"
+
+#: Controller/RulesController.php:34
+msgid "Invalid Rule."
+msgstr "Regola non valida."
+
+#: Controller/RulesController.php:49;85
+msgid "The Rule has been saved"
+msgstr "La regola è stata salvata"
+
+#: Controller/RulesController.php:54;90
+msgid "The Rule could not be saved. Please, try again."
+msgstr "La regola non può essere salvata. Prova di nuovo."
+
+#: Controller/RulesController.php:68
+msgid "Invalid Rule"
+msgstr "Regola non valida."
+
+#: Controller/RulesController.php:75
+msgid "Impossible to edit this rule!"
+msgstr "Imposibile modificare questa regola."
+
+#: Controller/RulesController.php:111
+msgid "Invalid id for Rule"
+msgstr "Id non valido per la regola."
+
+#: Controller/RulesController.php:115
+msgid "Impossible to delete this rule!"
+msgstr "Impossibile cancellare questa regola!"
+
+#: Controller/RulesController.php:119
+msgid "Rule deleted"
+msgstr "Regola cancellata"
+
+#: Controller/UserController.php:43 Controller/UsersController.php:38;87
+msgid "Invalid User"
+msgstr "Utente non valido"
+
+#: Controller/UserController.php:62
+msgid "Password changed!"
+msgstr "Pasword modificata!"
+
+#: Controller/UserController.php:73
+msgid ""
+"This e-mail has beeen used by another user in the system. Please try with "
+"another one!"
+msgstr "Questa e-mail è già usata. Provane un'altra!"
+
+#: Controller/UserController.php:81
+msgid "Your e-mail change request at %s "
+msgstr "Richiesta di cambio e-mail inviata a %s"
+
+#: Controller/UserController.php:107
+msgid ""
+"Your e-mail has been changed, you should receive a mail with instructions to "
+"confirm your new e-mail..."
+msgstr ""
+"L'indirizzo e-mail è stato modificato. Riceverai istruzioni per la conferma "
+"della tua nuova e-mail."
+
+#: Controller/UserController.php:110;439
+msgid ""
+"Failed to send a email to change your password. Please contact the "
+"administrator at %s"
+msgstr ""
+"Errore nell'invio dell'e-mail per il cambio password. Per favore contatta "
+"l'amministratore all'indirizzo %s"
+
+#: Controller/UserController.php:112
+msgid "The User profile has been saved"
+msgstr "Profilo utente salvato."
+
+#: Controller/UserController.php:151
+msgid "Bad identification data!"
+msgstr "Dati identificativi errati!"
+
+#: Controller/UserController.php:161
+msgid "The confirmation code has been accepted. You may log in now!"
+msgstr "Codice di conferma accettato. Puoi effettuare il login."
+
+#: Controller/UserController.php:166
+msgid "The confirmation code has been accepted. Thank you!"
+msgstr "Codice di conferma accettato. Grazie!"
+
+#: Controller/UserController.php:191
+msgid "This login is already used!"
+msgstr "Questo nome di login è già in uso!"
+
+#: Controller/UserController.php:199
+msgid "This email is already registred!"
+msgstr "Questa e-mail è già in uso."
+
+#: Controller/UserController.php:231
+msgid "Your registration confirmation at %s "
+msgstr "Richiesta di registrazione inviata a %s"
+
+#: Controller/UserController.php:242
+msgid ""
+"You will receive an email with a code in order to finish the registration..."
+msgstr "Riceverai una e-mail per la conferma della tua registrazione."
+
+#: Controller/UserController.php:246
+msgid ""
+"Failed to send the confirmation email. Please contact the administrator at %s"
+msgstr ""
+"Errore nell'invio di richiesta di conferma. Contatta l'amministratore "
+"all'indirizzo %s"
+
+#: Controller/UserController.php:253
+msgid "The registration failed!"
+msgstr "Registrazione fallita."
+
+#: Controller/UserController.php:265
+msgid "You are already logged in. Change your password in your profile!"
+msgstr "Già loggato! Cambia la password nel tuo profilo."
+
+#: Controller/UserController.php:291
+msgid "Your password has been changed!. You may log in now!"
+msgstr "Password modificata con successo. Puoi effettuare il login."
+
+#: Controller/UserController.php:296
+msgid "Error while saving your password!"
+msgstr "Si è verificato un errore nel savataggio password."
+
+#: Controller/UserController.php:313
+msgid "You are already logged in!"
+msgstr "Accesso al sistema già effettuato."
+
+#: Controller/UserController.php:333;365
+msgid "Invalid login or password!"
+msgstr "Login o password non validi!"
+
+#: Controller/UserController.php:341
+msgid "Your account is disabled!"
+msgstr "Il tuo account è stato disabilitato."
+
+#: Controller/UserController.php:350
+msgid "Your account has expired!"
+msgstr "Il tuo account è scaduto!"
+
+#: Controller/UserController.php:358
+msgid "You registration has not been confirmed!"
+msgstr "La tua registrazione non è stata confermata."
+
+#: Controller/UserController.php:377
+msgid "You are logged in as "
+msgstr "Hai effettuato l'accesso al sistema come "
+
+#: Controller/UserController.php:414
+msgid ""
+"You already requested password change. Please check your e-mail and use the "
+"code which we've sent"
+msgstr ""
+"Richiesta cambi password già effettuata. Controlla le tue e-mail, segui le "
+"istruzioni ed usa il codice ricevuto per effettuare il cambio password."
+
+#: Controller/UserController.php:424
+msgid "Your password change request at %s "
+msgstr "Richiesta cambio password inviata a %s"
+
+#: Controller/UserController.php:435;449
+msgid ""
+"If data provided is correct, you should receive a mail with instructions to "
+"change your password..."
+msgstr ""
+"Se i dati sono corretti riceverai una e-mail con le istruzioni per il cambio "
+"password..."
+
+#: Controller/UserController.php:444
+msgid "Failed to change your password. Please contact the administrator at %s"
+msgstr ""
+"Errore nel cambiare la password. Contatta l'amministratore all'indirizzo %s"
+
+#: Controller/UserController.php:461
+msgid "You are logged out!"
+msgstr "Logout effettuato correttamente."
+
+#: Controller/UsersController.php:59;120
+msgid "You cannot add a user in administrators group"
+msgstr "Non puoi aggiungere un utente nel gruppo amministratori"
+
+#: Controller/UsersController.php:69;147
+msgid "The User has been saved"
+msgstr "Utente salvato"
+
+#: Controller/UsersController.php:74;152
+msgid "The User could not be saved. Please, try again."
+msgstr "L'utente non può essere salvato. Prova di nuovo."
+
+#: Controller/UsersController.php:97
+msgid "You cannot edit a user in administrators group"
+msgstr "Non puoi modificare un utente del gruppo amministratori"
+
+#: Controller/UsersController.php:106
+msgid "Only the admin can change its profile!"
+msgstr "Solo gli amministratori possono cambiare il proprio profilo!"
+
+#: Controller/UsersController.php:169
+msgid "Invalid id for User"
+msgstr "Id utente non valido"
+
+#: Controller/UsersController.php:178
+msgid "You cannot delete a user in administrators group"
+msgstr "Non puoi cancellare un utente del gruppo amministratori"
+
+#: Controller/UsersController.php:185
+msgid "User deleted"
+msgstr "Utente cancellato"
+
+#: Controller/Component/AuthakeComponent.php:67
+msgid "Error retrieving settings"
+msgstr "Errore lettura impostazioni"
+
+#: Controller/Component/AuthakeComponent.php:85
+msgid "Error settings array not valid"
+msgstr "Errore! Elenco impostazioni errato."
+
+#: Controller/Component/AuthakeComponent.php:96
+msgid "Error save settings"
+msgstr "Errore salvataggio impostazioni"
+
+#: Controller/Component/AuthakeComponent.php:99
+msgid "Settings saved"
+msgstr "Impostazioni salvate"
+
+#: Controller/Component/AuthakeComponent.php:151;153
+msgid "Your session expired"
+msgstr "Sessione scaduta"
+
+#: Controller/Component/AuthakeComponent.php:178
+msgid "You have to log in to access %s"
+msgstr "Defi effettuare il login per accedere a %s"
+
+#: Controller/Component/AuthakeComponent.php:223
+#: View/Helper/AuthakeHelper.php:70 View/User/index.ctp:17
+#: View/Users/index.ctp:128 View/Users/view.ctp:57
+msgid "Guest"
+msgstr "Ospite"
+
+#: Model/User.php:30
+msgid "Username can not be blank"
+msgstr "Il nome utente deve essere indicato!"
+
+#: Model/User.php:30
+msgid "This e-mail has already been used"
+msgstr "Questa e-mail è già in uso"
+
+#: Model/User.php:34
+msgid "Passwords must be equal and not empty"
+msgstr "Le due password non coincidono."
+
+#: View/Authake/settings.ctp:10
+msgid "Reset Authake"
+msgstr "Ripristina impostazioni"
+
+#: View/Authake/settings.ctp:18
+msgid "Base URL"
+msgstr "Url base"
+
+#: View/Authake/settings.ctp:21
+msgid "Service"
+msgstr "Servizio"
+
+#: View/Authake/settings.ctp:24
+msgid "Login Action"
+msgstr "Azione per il login"
+
+#: View/Authake/settings.ctp:27
+msgid "Logged Action"
+msgstr "Azione per il login"
+
+#: View/Authake/settings.ctp:30
+msgid "Session Timeout"
+msgstr "Tempo prima che scada la sessione"
+
+#: View/Authake/settings.ctp:33
+msgid "Default Denied Action"
+msgstr "Azione standard per richiesta non valida"
+
+#: View/Authake/settings.ctp:36
+msgid "Rules Cache Timeout"
+msgstr "Scadenza per la cache delle regole"
+
+#: View/Authake/settings.ctp:39
+msgid "System Email"
+msgstr "Email di sistema"
+
+#: View/Authake/settings.ctp:42
+msgid "System Reply To"
+msgstr "Risposta di sistema"
+
+#: View/Authake/settings.ctp:78
+msgid "Default Group"
+msgstr "Gruppo standard"
+
+#: View/Elements/gotoadminpage.ctp:3
+msgid "Admin page"
+msgstr "Pagina ammistrazione"
+
+#: View/Elements/gotohomepage.ctp:3
+msgid "Homepage"
+msgstr "Pagina iniziale"
+
+#: View/Emails/html/lost_password.ctp:1
+msgid "You requested a password change at %s"
+msgstr "Hai richiesto il cambio della tua password all'indirizzo %s"
+
+#: View/Emails/html/lost_password.ctp:2
+msgid "Following the link below you can change your password:"
+msgstr "Clicca sul link per effettuare il cambio password:"
+
+#: View/Emails/html/lost_password.ctp:5
+msgid "Click here to change your password"
+msgstr "Clicca qui per cambiare la password"
+
+#: View/Emails/html/lost_password.ctp:7 View/Emails/html/register.ctp:7
+#: View/Emails/html/verify.ctp:7
+msgid "Verification code: %s"
+msgstr "Codice di verifica %s"
+
+#: View/Emails/html/lost_password.ctp:8
+msgid ""
+"If you don't request this change, no action is required. Your password will "
+"remain the same until you don't activate this code."
+msgstr ""
+"Se non hai richiesto il cambio della password, non è richiesta nessuna "
+"azione."
+
+#: View/Emails/html/lost_password.ctp:9 View/Emails/html/register.ctp:8
+#: View/Emails/html/verify.ctp:8
+msgid "Best regards"
+msgstr "Saluti"
+
+#: View/Emails/html/register.ctp:1 View/Emails/html/verify.ctp:1
+msgid "Your e-mail verification at %s"
+msgstr "E-mail di verifica inviata a %s"
+
+#: View/Emails/html/register.ctp:2
+msgid "You registered at our service."
+msgstr "Registrazione avvenuta"
+
+#: View/Emails/html/register.ctp:2 View/Emails/html/verify.ctp:2
+msgid "To ensure that this e-mail is valid, please follow this link:"
+msgstr "Clicca qui per verificare la tua e-mail"
+
+#: View/Emails/html/register.ctp:5 View/Emails/html/verify.ctp:5
+msgid "Click here to verify"
+msgstr "Clicca qui per verificare"
+
+#: View/Emails/html/verify.ctp:2
+msgid "You changed your e-mail address in your profile."
+msgstr "E-mail modificata nel tuo profilo"
+
+#: View/Groups/add.ctp:17 View/Groups/edit.ctp:22 View/Users/edit.ctp:31
+msgid "Name"
+msgstr "Nome"
+
+#: View/Groups/add.ctp:22 View/Groups/edit.ctp:29
+msgid "Users in this group<br/>Press 'Control' for multi-selection"
+msgstr "Utenti nel gruppo. Premere 'CTRL' per selezione multipla"
+
+#: View/Groups/edit.ctp:10
+msgid "View group"
+msgstr "Dettagli gruppo"
+
+#: View/Groups/edit.ctp:12;40 View/Rules/edit.ctp:10;59
+#: View/Users/edit.ctp:15;67
+msgid "Delete"
+msgstr "Cancella"
+
+#: View/Groups/edit.ctp:12;40 View/Rules/edit.ctp:10;59
+#: View/Users/edit.ctp:15;67
+msgid "Are you sure you want to delete @%s?"
+msgstr "Sei sicuro di vole cancellare @%s?"
+
+#: View/Groups/edit.ctp:38 View/Rules/edit.ctp:57
+msgid "View Rule"
+msgstr "Dettaglio regola"
+
+#: View/Groups/index.ctp:9 View/User/index.ctp:10
+msgid "Groups"
+msgstr "Gruppi"
+
+#: View/Groups/index.ctp:13
+msgid "There are %current% groups on this system."
+msgstr "Ci sono attualmente %current% gruppi registrati"
+
+#: View/Groups/view.ctp:7;21
+msgid "Group %s"
+msgstr "Gruppo %s"
+
+#: View/Groups/view.ctp:10
+msgid "Edit group"
+msgstr "Modifica gruppo"
+
+#: View/Groups/view.ctp:25 View/Rules/view.ctp:23 View/Users/view.ctp:23
+msgid "%s"
+msgstr "%s"
+
+#: View/Groups/view.ctp:38
+msgid "Users in group %s"
+msgstr "Utenti nel gruppo %s"
+
+#: View/Groups/view.ctp:99
+msgid "Rules applied to the group %s"
+msgstr "Regole da applicare al gruppo %s"
+
+#: View/Helper/AuthakeHelper.php:44
+msgid "Logout"
+msgstr "Logout"
+
+#: View/Helper/AuthakeHelper.php:50 View/User/index.ctp:5
+#: View/User/login.ctp:6;10 View/User/register.ctp:9 View/Users/add.ctp:19
+#: View/Users/edit.ctp:28
+msgid "Login"
+msgstr "Login"
+
+#: View/Helper/HtmlbisHelper.php:34
+msgid "Allow"
+msgstr "Consenti"
+
+#: View/Helper/HtmlbisHelper.php:36
+msgid "Deny"
+msgstr "Nega"
+
+#: View/Layouts/authake.ctp:36
+msgid "New User"
+msgstr "Nuovo utente"
+
+#: View/Layouts/authake.ctp:44
+msgid "New Group"
+msgstr "Nuovo gruppo"
+
+#: View/Layouts/authake.ctp:52
+msgid "New Rule"
+msgstr "Nuova regola"
+
+#: View/Rules/add.ctp:17 View/Rules/edit.ctp:19 View/Rules/index.ctp:25
+#: View/Rules/view.ctp:38
+msgid "Description"
+msgstr "Descrizione"
+
+#: View/Rules/add.ctp:22 View/Rules/edit.ctp:26 View/Rules/index.ctp:26
+#: View/Rules/view.ctp:44
+msgid "Group"
+msgstr "Gruppo"
+
+#: View/Rules/add.ctp:27 View/Rules/edit.ctp:31 View/Rules/index.ctp:30
+#: View/Rules/view.ctp:53
+msgid "Order"
+msgstr "Sequenza"
+
+#: View/Rules/add.ctp:38 View/Rules/edit.ctp:42 View/Rules/view.ctp:65
+msgid "Permission"
+msgstr "Permesso"
+
+#: View/Rules/add.ctp:45 View/Rules/edit.ctp:49
+msgid "Forward action on error"
+msgstr "Azione in caso di errore"
+
+#: View/Rules/add.ctp:48 View/Rules/edit.ctp:52 View/Rules/view.ctp:83
+msgid "Flash message on deny"
+msgstr "Messaggio se accesso negato"
+
+#: View/Rules/edit.ctp:8
+msgid "View rule"
+msgstr "Dettaglio regola"
+
+#: View/Rules/index.ctp:10
+msgid "Rules"
+msgstr "Regole"
+
+#: View/Rules/index.ctp:28 View/Rules/view.ctp:59
+msgid "Action"
+msgstr "Azione"
+
+#: View/Rules/index.ctp:29
+msgid "Actions"
+msgstr "Azioni"
+
+#: View/Rules/index.ctp:88
+msgid "Move up"
+msgstr "Sù"
+
+#: View/Rules/index.ctp:96
+msgid "Move down"
+msgstr "Giù"
+
+#: View/Rules/view.ctp:9
+msgid "Rule"
+msgstr "Regola"
+
+#: View/Rules/view.ctp:13;99
+msgid "Edit Rule"
+msgstr "Modifica regola"
+
+#: View/Rules/view.ctp:19
+msgid "Rule %s"
+msgstr "Regola %s"
+
+#: View/Rules/view.ctp:47
+msgid "Everybody, including not logged users"
+msgstr "Tutti, inclusi utenti non registrati"
+
+#: View/Rules/view.ctp:71
+msgid "Forward action on deny"
+msgstr "Azione in caso di accesso negato"
+
+#: View/Rules/view.ctp:78
+msgid "Forward to the login page, or default deny action if logged"
+msgstr ""
+"Rimanad alla pagina di login, o azione di default se la pagina non è permessa"
+
+#: View/Rules/view.ctp:90
+msgid "No output"
+msgstr "Nessun output"
+
+#: View/User/denied.ctp:3
+msgid "You dont have access to this page!"
+msgstr "Non hai i diritti di accesso a questa pagina"
+
+#: View/User/denied.ctp:8 View/User/message.ctp:5
+msgid "Go to homepage"
+msgstr "Torna alla pagina iniziale"
+
+#: View/User/index.ctp:3
+msgid "Profile of "
+msgstr "Profilo di"
+
+#: View/User/index.ctp:21
+msgid "Created"
+msgstr "Creato"
+
+#: View/User/index.ctp:30
+msgid "Modify profile"
+msgstr "Modifica profilo"
+
+#: View/User/index.ctp:32
+msgid "(If modified, you will have to confirm it before the next login)"
+msgstr ""
+"(Se modificata, deve essere confermata prima di poter effettuare il login)"
+
+#: View/User/index.ctp:33
+msgid "New Password"
+msgstr "Nuova password"
+
+#: View/User/index.ctp:34
+msgid "Enter Your New Password Again"
+msgstr "Ripeti la nuova password"
+
+#: View/User/index.ctp:37
+msgid "Save"
+msgstr "salva"
+
+#: View/User/login.ctp:7 View/User/register.ctp:12 View/Users/add.ctp:22
+msgid "Password"
+msgstr "Password"
+
+#: View/User/login.ctp:13
+msgid "I forgot my password..."
+msgstr "Ho dimenticato la password..."
+
+#: View/User/login.ctp:16
+msgid "Register yourself"
+msgstr "Registrati"
+
+#: View/User/lost_password.ctp:5
+msgid "Login or email"
+msgstr "Login/e-mail"
+
+#: View/User/lost_password.ctp:7
+msgid "Request for password"
+msgstr "Richiedi password"
+
+#: View/User/pass.ctp:6
+msgid "Change your password"
+msgstr "Cambia password"
+
+#: View/User/pass.ctp:9
+msgid "Code"
+msgstr "Codice"
+
+#: View/User/pass.ctp:14 View/User/verify.ctp:11
+msgid "Confirm"
+msgstr "Conferma"
+
+#: View/User/profile.ctp:10
+msgid "Change my password now"
+msgstr "Cambia la mia pasword adesso."
+
+#: View/User/register.ctp:6
+msgid "Registration"
+msgstr "Registrazione"
+
+#: View/User/register.ctp:11 View/Users/add.ctp:28 View/Users/edit.ctp:37
+msgid "Email"
+msgstr "e-mail"
+
+#: View/User/register.ctp:13
+msgid "Please, re-enter password"
+msgstr "Inserisci di nuovo la password"
+
+#: View/User/register.ctp:15
+msgid "Register"
+msgstr "Registrati"
+
+#: View/User/verify.ctp:6
+msgid "Confirmation"
+msgstr "Conferma"
+
+#: View/User/verify.ctp:8
+msgid "Please insert the code which you received in your e-mail."
+msgstr "Inserisci il codice ricevuto per e-mail"
+
+#: View/Users/add.ctp:25 View/Users/edit.ctp:25
+msgid "Id to external data"
+msgstr "Id dati esterni"
+
+#: View/Users/add.ctp:31 View/Users/edit.ctp:34
+msgid "In groups Press 'Control' for multi-selection"
+msgstr "Gruppo. Premi \"CTRL\" per selezione multipla"
+
+#: View/Users/edit.ctp:11;63
+msgid "View user"
+msgstr "Dettagli utente"
+
+#: View/Users/edit.ctp:40
+msgid "Password (visible!)"
+msgstr "Password (Visibile)!"
+
+#: View/Users/edit.ctp:44
+msgid "Password Change Code"
+msgstr "Codice cambio password"
+
+#: View/Users/edit.ctp:47
+msgid "Email Check Code"
+msgstr "Codice conferma e-mail"
+
+#: View/Users/edit.ctp:50
+msgid "Account Expiry Date"
+msgstr "Data scadenza account"
+
+#: View/Users/index.ctp:11
+msgid "There are %current% users on this system."
+msgstr "Ci sono %current% utenti nel sistema"
+
+#: View/Users/index.ctp:30
+msgid ""
+"<div class=\"span2\">\n"
+"\t\t\t\t\t\t\t\t<div class=\"ac stat-block\" style=\"margin-bottom:0\">\n"
+"\t\t\t\t\t\t\t\t\t<h3>\n"
+"\t\t\t\t\t\t\t\t\t\t%current%\n"
+"\t\t\t\t\t\t\t\t\t</h3>\n"
+"\t\t\t\t\t\t\t\t\t<h6 class=\"stat-heading\">\n"
+"\t\t\t\t\t\t\t\t\t\tTotal Users\n"
+"\t\t\t\t\t\t\t\t\t</h6>\n"
+"\t\t\t\t\t\t\t\t</div>\n"
+"\t\t\t\t\t\t\t</div>\n"
+"\t\t\t\t\t\t\t<div class=\"span2\">\n"
+"\t\t\t\t\t\t\t\t<div class=\"ac stat-block\" style=\"margin-bottom:0\">\n"
+"\t\t\t\t\t\t\t\t\t<h3>\n"
+"\t\t\t\t\t\t\t\t\t\t%page%\n"
+"\t\t\t\t\t\t\t\t\t</h3>\n"
+"\t\t\t\t\t\t\t\t\t<h6 class=\"stat-heading\">\n"
+"\t\t\t\t\t\t\t\t\t\tPage Number\n"
+"\t\t\t\t\t\t\t\t\t</h6>\n"
+"\t\t\t\t\t\t\t\t</div>\n"
+"\t\t\t\t\t\t\t</div>\n"
+"\t\t\t\t\t\t\t<div class=\"span2\">\n"
+"\t\t\t\t\t\t\t\t<div class=\"ac stat-block\" style=\"margin-bottom:0\">\n"
+"\t\t\t\t\t\t\t\t\t<h3>\n"
+"\t\t\t\t\t\t\t\t\t\t%pages%\n"
+"\t\t\t\t\t\t\t\t\t</h3>\n"
+"\t\t\t\t\t\t\t\t\t<h6 class=\"stat-heading\">\n"
+"\t\t\t\t\t\t\t\t\t\tTotal Pages\n"
+"\t\t\t\t\t\t\t\t\t</h6>\n"
+"\t\t\t\t\t\t\t\t</div>\n"
+"\t\t\t\t\t\t\t</div>"
+msgstr ""
+
+#: View/Users/index.ctp:83
+msgid "Disabled"
+msgstr "Disabilitato"
+
+#: View/Users/view.ctp:8;19
+msgid "User %s"
+msgstr "Utente %s"
+
+#: View/Users/view.ctp:42
+msgid "Account disabled"
+msgstr "Account disabilitato"
+
+#: View/Users/view.ctp:69
+msgid "No password change requested"
+msgstr "Nessuna richiesta di cambio password"
+
+#: View/Users/view.ctp:77
+msgid "No email change requested"
+msgstr "Nessuna richiesta di cambio e-mail"
+
+#: View/Users/view.ctp:89
+msgid "Never"
+msgstr "Mai"
+
+#: View/Users/view.ctp:117
+msgid "Allowed & denied actions"
+msgstr "Azioni permesse e negate"
+
+#: View/Users/view.ctp:148
+msgid "user %s"
+msgstr "user %s"
+
+#: webroot/test.php:75
+msgid "Debug setting does not allow access to this url."
+msgstr "Le impostazioni di debug non consentono l'accesso a questa pagina."

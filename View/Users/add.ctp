@@ -16,19 +16,19 @@
 					<fieldset class="inputs">
 						<legend>User Information</legend>
 						<div class="string control-group stringish" id="Login">
-							<?php echo $this->Form->input('login', array('label'=>array('text'=>__('Login'),'class'=>'control-label'),'between'=>'<div class="controls">', 'after'=>'<span class="help-inline">Username used when login. If configured, can be email.</span></div>'));?>
+							<?php echo $this->Form->input('login', array('label'=>array('text'=>__d('authake','Login'),'class'=>'control-label'),'between'=>'<div class="controls">', 'after'=>'<span class="help-inline">Username used when login. If configured, can be email.</span></div>'));?>
 						</div>
 						<div class="string control-group stringish" id="Password">
-							<?php echo $this->Form->input('password', array('label'=>array('text'=>__('Password'),'class'=>'control-label'),'size'=>'12' ,'between'=>'<div class="controls">', 'after'=>'<span class="help-inline">User\'s password. Choose a strong one.</span></div>'));?>
+							<?php echo $this->Form->input('password', array('label'=>array('text'=>__d('authake','Password'),'class'=>'control-label'),'size'=>'12' ,'between'=>'<div class="controls">', 'after'=>'<span class="help-inline">User\'s password. Choose a strong one.</span></div>'));?>
 						</div>
 						<div class="string control-group stringish" id="ExternalId">
-							<?php echo $this->Form->input('external_id', array('type' => 'text', 'label'=>array('text'=>__('Id to external data'),'class'=>'control-label'),'style'=>'width: 15em;', 'between'=>'<div class="controls">', 'after'=>'</div>'));?>
+							<?php echo $this->Form->input('external_id', array('type' => 'text', 'label'=>array('text'=>__d('authake','Id to external data'),'class'=>'control-label'),'style'=>'width: 15em;', 'between'=>'<div class="controls">', 'after'=>'</div>'));?>
 						</div>
 						<div class="string control-group stringish" id="Email">
-							<?php echo $this->Form->input('email', array('label'=>array('text'=>__('Email'),'class'=>'control-label'),'size'=>'40', 'between'=>'<div class="controls">', 'after'=>'<span class="help-inline">User\'s email address. Choose a real one. Confirmation goes to this email.</span></div>'));?>
+							<?php echo $this->Form->input('email', array('label'=>array('text'=>__d('authake','Email'),'class'=>'control-label'),'size'=>'40', 'between'=>'<div class="controls">', 'after'=>'<span class="help-inline">User\'s email address. Choose a real one. Confirmation goes to this email.</span></div>'));?>
 						</div>
 						<div class="string control-group stringish" id="Group">
-							<?php echo $this->Form->input('Group', array('label'=>array('text'=>__('In groups Press \'Control\' for multi-selection'),'class'=>'control-label'),'style'=>'width: 15em;', 'between'=>'<div class="controls">', 'after'=>'</div>'));?>
+							<?php echo $this->Form->input('Group', array('label'=>array('text'=>__d('authake','In groups Press \'Control\' for multi-selection'),'class'=>'control-label'),'style'=>'width: 15em;', 'between'=>'<div class="controls">', 'after'=>'</div>'));?>
 						</div>
 						<div class="string control-group stringish" id="Email">
 							<div class="controls">

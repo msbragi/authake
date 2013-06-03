@@ -31,7 +31,7 @@ class RulesController extends AuthakeAppController {
 
 		if (!$id)
 		{
-			$this->Session->setFlash(__('Invalid Rule.'), 'error');
+			$this->Session->setFlash(__d('authake','Invalid Rule.'), 'error');
 			$this->redirect(array('action'=>'index'));
 		}
 
@@ -46,12 +46,12 @@ class RulesController extends AuthakeAppController {
 
 			if ($this->Rule->save($this->request->data))
 			{
-				$this->Session->setFlash(__('The Rule has been saved'), 'success');
+				$this->Session->setFlash(__d('authake','The Rule has been saved'), 'success');
 				$this->redirect(array('action'=>'index'));
 			}
 			else
 			{
-				$this->Session->setFlash(__('The Rule could not be saved. Please, try again.'), 'warning');
+				$this->Session->setFlash(__d('authake','The Rule could not be saved. Please, try again.'), 'warning');
 			}
 		}
 
@@ -65,14 +65,14 @@ class RulesController extends AuthakeAppController {
 
 		if (!$id && empty($this->request->data))
 		{
-			$this->Session->setFlash(__('Invalid Rule'), 'error');
+			$this->Session->setFlash(__d('authake','Invalid Rule'), 'error');
 			$this->redirect(array('action'=>'index'));
 		}
 
 
 		if ($id == '1')
 		{// do not touch to the admin rule
-			$this->Session->setFlash(__('Impossible to edit this rule!'), 'warning');
+			$this->Session->setFlash(__d('authake','Impossible to edit this rule!'), 'warning');
 			$this->redirect(array('action'=>'index'));
 		}
 
@@ -82,12 +82,12 @@ class RulesController extends AuthakeAppController {
 
 			if ($this->Rule->save($this->request->data))
 			{
-				$this->Session->setFlash(__('The Rule has been saved'), 'success');
+				$this->Session->setFlash(__d('authake','The Rule has been saved'), 'success');
 				$this->redirect(array('action'=>'index'));
 			}
 			else
 			{
-				$this->Session->setFlash(__('The Rule could not be saved. Please, try again.'), 'warning');
+				$this->Session->setFlash(__d('authake','The Rule could not be saved. Please, try again.'), 'warning');
 			}
 		}
 
@@ -108,15 +108,15 @@ class RulesController extends AuthakeAppController {
 
 		if (!$id)
 		{
-			$this->Session->setFlash(__('Invalid id for Rule'), 'error');
+			$this->Session->setFlash(__d('authake','Invalid id for Rule'), 'error');
 		}
 		elseif ($id == '1')
 		{// do not touch to the admin rule
-			$this->Session->setFlash(__('Impossible to delete this rule!'), 'warning');
+			$this->Session->setFlash(__d('authake','Impossible to delete this rule!'), 'warning');
 		}
 		elseif ($this->Rule->delete($id))
 		{
-			$this->Session->setFlash(__('Rule deleted'), 'success');
+			$this->Session->setFlash(__d('authake','Rule deleted'), 'success');
 		}
 
 		$this->redirect(array('action'=>'index'));

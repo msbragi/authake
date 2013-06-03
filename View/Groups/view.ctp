@@ -4,10 +4,10 @@
 	<div class="container">
 		<div class="section">
 			<div class="section-header">
-				<h3><?php  echo sprintf(__('Group %s'), "<u>{$group['Group']['name']}</u>"); ?></h3>
+				<h3><?php  echo sprintf(__d('authake','Group %s'), "<u>{$group['Group']['name']}</u>"); ?></h3>
 				<div class="section-actions">
 					<div class="btn-group">
-<?php echo $this->Html->link(__('Edit group'), array('action'=>'edit', $group['Group']['id']), array('class'=>'btn btn-primary')); ?>
+<?php echo $this->Html->link(__d('authake','Edit group'), array('action'=>'edit', $group['Group']['id']), array('class'=>'btn btn-primary')); ?>
 						<button class="btn btn-primary dropdown-toggle" data-toggle="dropdown" type="button">
 							<span class="caret"></span>
 						</button>
@@ -18,11 +18,11 @@
 							<?php if (empty($actions)) { ?>
 							        <li class="icon lock"><a href="<?php echo $this->Html->url(array('action'=>'view', $group['Group']['id'] ,'actions')); ?>"><i class="icon-arrow-right"></i>View allowed & denied actions</a></li>
 									<li>
-										<a href="<?php echo $this->Html->url(array('controller'=>'groups','action'=>'delete', $group['Group']['id'])); ?>" data-confirm="WARNING: This will also delete all data related to user <?php  echo sprintf(__('Group %s'), "{$group['Group']['name']}"); ?>.
+										<a href="<?php echo $this->Html->url(array('controller'=>'groups','action'=>'delete', $group['Group']['id'])); ?>" data-confirm="WARNING: This will also delete all data related to user <?php  echo sprintf(__d('authake','Group %s'), "{$group['Group']['name']}"); ?>.
 
 										This cannot be undone.
 
-										Are you sure you want to delete <?php  echo sprintf(__('%s'), "{$group['Group']['name']}"); ?>?" data-disable-with="Deleting..." data-method="delete" rel="nofollow"><i class="icon-trash"></i>
+										Are you sure you want to delete <?php  echo sprintf(__d('authake','%s'), "{$group['Group']['name']}"); ?>?" data-disable-with="Deleting..." data-method="delete" rel="nofollow"><i class="icon-trash"></i>
 										Delete Group
 									</a>
 									</li>
@@ -35,7 +35,7 @@
 				<div class="row-fluid">
 
 					<div class="page-header">
-						<h3><?php echo sprintf(__('Users in group %s'), $group['Group']['name']);?></h3>
+						<h3><?php echo sprintf(__d('authake','Users in group %s'), $group['Group']['name']);?></h3>
 					</div>
 					<table class="table table-outer-bordered table-striped">
 						<thead>
@@ -96,7 +96,7 @@
 						</div>
 					</div>
 					<div class="page-header">
-						<h3><?php echo sprintf(__('Rules applied to the group %s'), $group['Group']['name']);?></h3>
+						<h3><?php echo sprintf(__d('authake','Rules applied to the group %s'), $group['Group']['name']);?></h3>
 					</div>
 					<table class="table table-outer-bordered">
 						<tbody>

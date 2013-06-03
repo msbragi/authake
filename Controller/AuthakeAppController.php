@@ -25,7 +25,7 @@ class AuthakeAppController extends AppController {
 	function __makePassword($password1, $password2) {
 		if ($password1 != $password2)
 		{
-			$this->Session->setFlash(__('The two passwords do not match!'), 'error');
+			$this->Session->setFlash(__d('authake','The two passwords do not match!'), 'error');
 			return false;
 		}
 		return md5($password1);

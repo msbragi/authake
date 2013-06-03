@@ -8,7 +8,7 @@
 					<small>
 						<?php
 						echo $this->Paginator->counter(array(
-						'format' => __('There are %current% users on this system.')
+						'format' => __d('authake','There are %current% users on this system.')
 						));
 						?>
 					</small>
@@ -27,7 +27,7 @@
 						</div>
 							<?php
 						echo $this->Paginator->counter(array(
-							'format' => __('<div class="span2">
+							'format' => __d('authake','<div class="span2">
 								<div class="ac stat-block" style="margin-bottom:0">
 									<h3>
 										%current%
@@ -80,7 +80,7 @@
                                         <?php echo $this->Paginator->sort('created');?>
                                 </li>
                                 <li class="">
-                                        <?php echo $this->Paginator->sort(__('Disabled'), 'disable');?>
+                                        <?php echo $this->Paginator->sort(__d('authake','Disabled'), 'disable');?>
                                 </li>
                             </ul>
                         </div>
@@ -125,9 +125,9 @@
 							<td>
 								<div class="muted">
 									<?php //pr($user['Group']);
-								$gr = (count($user['Group'])) ? array() : array(__('Guest'));     // Specify Guest group if lonely group
+								$gr = (count($user['Group'])) ? array() : array(__d('authake','Guest'));     // Specify Guest group if lonely group
 								foreach($user['Group'] as $k=>$group)
-									$gr[] = $this->Html->link(__($group['name']), array('controller'=>'groups', 'action'=>'view', $group['id']),array('class'=>'label'));
+									$gr[] = $this->Html->link($group['name'], array('controller'=>'groups', 'action'=>'view', $group['id']),array('class'=>'label'));
 
 								echo implode(' ', $gr); ?>
 								</div>

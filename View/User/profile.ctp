@@ -7,6 +7,6 @@
 			<?php echo $this->Form->input('password1', array('label'=>'New password', 'type'=>'password', 'value' => '', 'size'=>'12'));?>
 			<?php echo $this->Form->input('password2', array('label'=>'Please re-enter password', 'type'=>'password', 'value' => '', 'size'=>'12'));?>
 		</fieldset>
-		<?php echo $this->Form->end(__('Change my password now'))  ?>
+		<?php echo $this->Form->end(__d('authake','Change my password now'))  ?>
 	</div>
 </div>

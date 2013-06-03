@@ -31,9 +31,9 @@ class HtmlbisHelper extends HtmlHelper {
     
     function iconallowdeny($what) {
         if ($what == true)
-            echo "<span class='label label-success'>".__('Allow')."</span>";
+            echo "<span class='label label-success'>".__d('authake','Allow')."</span>";
         else
-            echo "<span class='label label-important'>".__('Deny')."</span>";
+            echo "<span class='label label-important'>".__d('authake','Deny')."</span>";
     }
 }
 ?>

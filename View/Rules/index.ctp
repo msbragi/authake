@@ -7,7 +7,7 @@ $up = null;
 		<div class="section">
 			<div class="section-header">
 				<h3>
-					<?php echo __('Rules');?>
+					<?php echo __d('authake','Rules');?>
 					<small> List of all rules applied in your system. </small>
 				</h3>
 				<div class="section-actions">
@@ -22,12 +22,12 @@ $up = null;
 				<table class="table table-outer-bordered">
 					<thead>
 						<tr>
-							<th><?php echo __('Description');?></th>
-							<th><?php echo __('Group');?></th>
+							<th><?php echo __d('authake','Description');?></th>
+							<th><?php echo __d('authake','Group');?></th>
 							<th>&nbsp;</th>
-							<th><?php echo __('Action');?></th>
-							<th class="actions"><?php echo __('Actions');?></th>
-							<th><?php echo __('Order');?></th>
+							<th><?php echo __d('authake','Action');?></th>
+							<th class="actions"><?php echo __d('authake','Actions');?></th>
+							<th><?php echo __d('authake','Order');?></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -85,7 +85,7 @@ $up = null;
 										<?php
 
 										if ($up) {
-				                                       echo '<li>'.$this->Htmlbis->iconlink('arrow_up', __('Move up'), array('action'=>'up', $rule['Rule']['id'], $up)).'</li>';
+				                                       echo '<li>'.$this->Htmlbis->iconlink('arrow_up', __d('authake','Move up'), array('action'=>'up', $rule['Rule']['id'], $up)).'</li>';
 				                                   } else {
 				                                       echo '<li>'.$this->Htmlbis->iconlink('empty', '', array('action'=>'')).'</li>';
 				                                   }
@@ -93,7 +93,7 @@ $up = null;
 
 				                                   $down = $rules[$k+1]['Rule']['id'];
 				                                   if ($down>1) {
-				                                       echo '<li>'.$this->Htmlbis->iconlink('arrow_down', __('Move down'), array('action'=>'up', $rule['Rule']['id'], $down)).'</li>';
+				                                       echo '<li>'.$this->Htmlbis->iconlink('arrow_down', __d('authake','Move down'), array('action'=>'up', $rule['Rule']['id'], $down)).'</li>';
 				                                   } else {
 				                                       echo '<li>'.$this->Htmlbis->iconlink('empty', '', array('action'=>'')).'</li>';
 				                                   }

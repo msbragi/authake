@@ -5,7 +5,7 @@
 	<div class="container">
 		<div class="section">
 			<div class="section-header">
-				<h3><?php  echo sprintf(__('User %s'), "<u>{$user['User']['login']}</u>"); ?></h3>
+				<h3><?php  echo sprintf(__d('authake','User %s'), "<u>{$user['User']['login']}</u>"); ?></h3>
 				<div class="section-actions">
 					<div class="btn-group">
 						<a class="btn btn-primary" href="">
@@ -16,11 +16,11 @@
 						</button>
 						<ul class="dropdown-menu pull-right">
 							<li>
-								<a href="<?php echo $this->Html->url(array('controller'=>'users','action'=>'delete', $user['User']['id'])); ?>" data-confirm="WARNING: This will also delete all data related to user <?php  echo sprintf(__('User %s'), "{$user['User']['login']}"); ?>.
+								<a href="<?php echo $this->Html->url(array('controller'=>'users','action'=>'delete', $user['User']['id'])); ?>" data-confirm="WARNING: This will also delete all data related to user <?php  echo sprintf(__d('authake','User %s'), "{$user['User']['login']}"); ?>.
 
 								This cannot be undone.
 
-								Are you sure you want to delete <?php  echo sprintf(__('%s'), "{$user['User']['login']}"); ?>?" data-disable-with="Deleting..." data-method="delete" rel="nofollow"><i class="icon-trash"></i>
+								Are you sure you want to delete <?php  echo sprintf(__d('authake','%s'), "{$user['User']['login']}"); ?>?" data-disable-with="Deleting..." data-method="delete" rel="nofollow"><i class="icon-trash"></i>
 								Delete User
 							</a>
 							</li>
@@ -39,7 +39,7 @@
 					</div>
 					<?php 
 					if ($user['User']['disable']) { 
-						echo "<div class='alert alert-error'>".__('Account disabled')."</div>";
+						echo "<div class='alert alert-error'>".__d('authake','Account disabled')."</div>";
 					} 
 					?>
 					<table class="table table-outer-bordered table-striped">
@@ -54,9 +54,9 @@
 								<td>
 									<div class="muted">
 										<?php //pr($user['Group']);
-									$gr = (count($user['Group'])) ? array() : array(__('Guest'));     // Specify Guest group if lonely group
+									$gr = (count($user['Group'])) ? array() : array(__d('authake','Guest'));     // Specify Guest group if lonely group
 									foreach($user['Group'] as $k=>$group)
-										$gr[] = $this->Html->link(__($group['name']), array('controller'=>'groups', 'action'=>'view', $group['id']),array('class'=>'label'));
+										$gr[] = $this->Html->link($group['name'], array('controller'=>'groups', 'action'=>'view', $group['id']),array('class'=>'label'));
 
 									echo implode('', $gr); ?>
 									</div>
@@ -66,7 +66,7 @@
 								<th>Password Change Code</th>
 								<td>
 									<?php $j = $user['User']['passwordchangecode'];
-									echo $j ? $j : __('No password change requested');
+									echo $j ? $j : __d('authake','No password change requested');
 									?>
 								</td>
 							</tr>
@@ -74,7 +74,7 @@
 								<th>Email Check Code</th>
 								<td>
 									<?php $j = $user['User']['emailcheckcode'];
-								echo $j ? $j : __('No email change requested');
+								echo $j ? $j : __d('authake','No email change requested');
 								?>
 								</td>
 							</tr>
@@ -86,7 +86,7 @@
 										if ($exp != '0000-00-00')
 											echo $exp;
 										else
-											echo __('Never');
+											echo __d('authake','Never');
 									?>
 								</td>
 							</tr>
@@ -114,7 +114,7 @@
 					</div>
 					<?php if (!empty($actions)) { ?>
 						<div class="page-header">
-							<h3><?php echo __('Allowed & denied actions');?></h3>
+							<h3><?php echo __d('authake','Allowed & denied actions');?></h3>
 						</div>
 						<table class="table table-outer-bordered table-striped">
 							<?php
@@ -145,7 +145,7 @@
 							 ?>
 						</table>
 					<div class="page-header">
-						<h3>Rules applied to <?php  echo sprintf(__('user %s'), "{$user['User']['login']}"); ?></h3>
+						<h3>Rules applied to <?php  echo sprintf(__d('authake','user %s'), "{$user['User']['login']}"); ?></h3>
 					</div>
 					<table class="table table-outer-bordered">
 						<tbody>

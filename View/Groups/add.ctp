@@ -14,12 +14,12 @@
 					<fieldset class="inputs">
 						<legend>Group Information</legend>
 						<div class="string control-group stringish" id="Login">
-							<label class="control-label"><?php echo __('Name'); ?></label>
+							<label class="control-label"><?php echo __d('authake','Name'); ?></label>
 							<div class="controls">
 							<?php echo $this->Form->input('name', array('label'=>false,'after'=>'</div>'));?>
 						</div>
 						<div class="string control-group stringish" id="Password">
-							<label class="control-label"><?php echo __('Users in this group<br/>Press \'Control\' for multi-selection'); ?></label>
+							<label class="control-label"><?php echo __d('authake','Users in this group<br/>Press \'Control\' for multi-selection'); ?></label>
 							<div class="controls">
 							<?php 
 								echo $this->Form->input('User', array('style'=>'width: 15em;', 'label'=>false, 'after'=>'<span class="help-inline">Select users if you want to add them to this group.</span></div>'));

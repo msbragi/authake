@@ -64,7 +64,7 @@ class AuthakeComponent extends Component {
 			$settings = $this->saveSettings(null, true);
 		}
 		if(!$settings) {
-			$this->Session->setFlash(__('Error retrieving settings'), 'warning');
+			$this->Session->setFlash(__d('authake','Error retrieving settings'), 'warning');
 			return array();
 		}
 		return $settings;
@@ -82,7 +82,7 @@ class AuthakeComponent extends Component {
 			$settings = $this->defaultSettings();
 		}
 		if(!$settings) {
-			$this->Session->setFlash(__('Error settings array not valid'), 'error');
+			$this->Session->setFlash(__d('authake','Error settings array not valid'), 'error');
 			return array();
 		}
 
@@ -93,10 +93,10 @@ class AuthakeComponent extends Component {
 		);
 
 		if(!$model->save($data)) {
-			$this->Session->setFlash(__('Error save settings'), 'error');
+			$this->Session->setFlash(__d('authake','Error save settings'), 'error');
 			return array();
 		}
-		$this->Session->setFlash(__('Settings saved'), 'info');
+		$this->Session->setFlash(__d('authake','Settings saved'), 'info');
 		return $settings;
 	}
 
@@ -148,9 +148,9 @@ class AuthakeComponent extends Component {
 			if ((time() - $ts) > $tm) {
 				$this->setPreviousUrl($path);
 				$this->logout();
-				$this->Session->setFlash(__('Your session expired'), 'warning');
+				$this->Session->setFlash(__d('authake','Your session expired'), 'warning');
 				if($this->RequestHandler->isAjax()) {
-					echo __('Your session expired');
+					echo __d('authake','Your session expired');
 					die();
 				} else {
 					$controller->redirect($loginAction);
@@ -163,7 +163,7 @@ class AuthakeComponent extends Component {
 
 			if ($this->isLogged()) { // if denied & logged, write a message
 				if ($this->_flashmessage) { // message from the rule (accept path in %s)
-					$this->Session->setFlash(sprintf(__($this->_flashmessage), $path), 'error');    // Set Flash message
+					$this->Session->setFlash(sprintf(__d('authake',$this->_flashmessage), $path), 'error');    // Set Flash message
 				}
 				$fw = $this->_forward ? $this->_forward : Configure::read('Authake.defaultDeniedAction');
 				if($this->RequestHandler->isAjax()) {
@@ -174,7 +174,7 @@ class AuthakeComponent extends Component {
 			} else { // if denied & not loggued, propose to log in
 				$this->setPreviousUrl($path);
 				$strpath = $path;
-				$this->Session->setFlash(sprintf(__('You have to log in to access %s'), $strpath), 'warning');
+				$this->Session->setFlash(sprintf(__d('authake','You have to log in to access %s'), $strpath), 'warning');
 				if($this->RequestHandler->isAjax()) {
 					die();
 				} else {
@@ -219,7 +219,7 @@ class AuthakeComponent extends Component {
 
 	function getGroupNames() {
 		$gn = $this->Session->read('Authake.group_names');
-		return (is_array($gn) ? $gn : array(__('Guest')));
+		return (is_array($gn) ? $gn : array(__d('authake','Guest')));
 	}
 
 	function isMemberOf($gid) {
