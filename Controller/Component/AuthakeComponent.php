@@ -137,22 +137,18 @@ class AuthakeComponent extends Component {
 		// get login action
 		$loginAction = $this->cleanUrl(Configure::read('Authake.loginAction'));
 
-		if($loginAction !== $path) {
-			$this->setPreviousUrl($path);
-		}
-
 		// check session timeout
 		$tm = Configure::read('Authake.sessionTimeout');
 		if ($tm && $this->isLogged()) {
 			$ts = $this->Session->read('Authake.timestamp');
 			if ((time() - $ts) > $tm) {
-				$this->setPreviousUrl($path);
 				$this->logout();
 				$this->Session->setFlash(__d('authake','Your session expired'), 'warning');
 				if($this->RequestHandler->isAjax()) {
 					echo __d('authake','Your session expired');
 					die();
 				} else {
+					$this->setPreviousUrl($path);
 					$controller->redirect($loginAction);
 				}
 			}
@@ -160,26 +156,19 @@ class AuthakeComponent extends Component {
 		}
 
 		if (!$this->isAllowed($path)) { // check for permissions
-
+			if($this->RequestHandler->isAjax()) {
+				die();
+			}
 			if ($this->isLogged()) { // if denied & logged, write a message
 				if ($this->_flashmessage) { // message from the rule (accept path in %s)
 					$this->Session->setFlash(sprintf(__d('authake',$this->_flashmessage), $path), 'error');    // Set Flash message
 				}
 				$fw = $this->_forward ? $this->_forward : Configure::read('Authake.defaultDeniedAction');
-				if($this->RequestHandler->isAjax()) {
-					die();
-				} else {
-					$controller->redirect($fw);
-				}
+				$controller->redirect($fw);
 			} else { // if denied & not loggued, propose to log in
 				$this->setPreviousUrl($path);
-				$strpath = $path;
-				$this->Session->setFlash(sprintf(__d('authake','You have to log in to access %s'), $strpath), 'warning');
-				if($this->RequestHandler->isAjax()) {
-					die();
-				} else {
-					$controller->redirect($loginAction);
-				}
+				$this->Session->setFlash(sprintf(__d('authake','You have to log in to access %s'), $path), 'warning');
+				$controller->redirect($loginAction);
 			}
 			$this->_flashmessage = '';
 		}
@@ -189,11 +178,18 @@ class AuthakeComponent extends Component {
 	 * API functions
 	 */
 	function setPreviousUrl($url) {
-		$this->Session->write('Authake.previousUrl', $url);
+		$loginAction = $this->cleanUrl(Configure::read('Authake.loginAction'));
+		if(!$this->RequestHandler->isAjax() && ($url != $loginAction)) {
+			$this->Session->write('Authake.previousUrl', $url);
+		}
 	}
 
-	function getPreviousUrl() {
-		return $this->Session->read('Authake.previousUrl');
+	function getPreviousUrl($reset = false) {
+		$gotoUrl = $this->Session->read('Authake.previousUrl');
+		if($reset) {
+			$this->setPreviousUrl(null);
+		}
+		return $gotoUrl;
 	}
 
 	function isLogged() {
