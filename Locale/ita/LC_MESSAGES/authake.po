@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "POT-Creation-Date: 2013-06-03 11:13+0200\n"
-"PO-Revision-Date: 2013-06-03 11:59+0100\n"
+"PO-Revision-Date: 2013-06-17 14:33+0100\n"
 "Last-Translator: Marco Sbragi <m.sbragi@nospace.net>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -255,7 +255,7 @@ msgstr "Non puoi cancellare un utente del gruppo amministratori"
 
 #: Controller/UsersController.php:185
 msgid "User deleted"
-msgstr "Utente cancellato"
+msgstr "Utente eliminato"
 
 #: Controller/Component/AuthakeComponent.php:67
 msgid "Error retrieving settings"
@@ -416,12 +416,12 @@ msgstr "Dettagli gruppo"
 #: View/Groups/edit.ctp:12;40 View/Rules/edit.ctp:10;59
 #: View/Users/edit.ctp:15;67
 msgid "Delete"
-msgstr "Cancella"
+msgstr "Elimina"
 
 #: View/Groups/edit.ctp:12;40 View/Rules/edit.ctp:10;59
 #: View/Users/edit.ctp:15;67
 msgid "Are you sure you want to delete @%s?"
-msgstr "Sei sicuro di vole cancellare @%s?"
+msgstr "Sei sicuro di voler eliminare @%s?"
 
 #: View/Groups/edit.ctp:38 View/Rules/edit.ctp:57
 msgid "View Rule"
@@ -694,40 +694,6 @@ msgstr "Data scadenza account"
 msgid "There are %current% users on this system."
 msgstr "Ci sono %current% utenti nel sistema"
 
-#: View/Users/index.ctp:30
-msgid ""
-"<div class=\"span2\">\n"
-"\t\t\t\t\t\t\t\t<div class=\"ac stat-block\" style=\"margin-bottom:0\">\n"
-"\t\t\t\t\t\t\t\t\t<h3>\n"
-"\t\t\t\t\t\t\t\t\t\t%current%\n"
-"\t\t\t\t\t\t\t\t\t</h3>\n"
-"\t\t\t\t\t\t\t\t\t<h6 class=\"stat-heading\">\n"
-"\t\t\t\t\t\t\t\t\t\tTotal Users\n"
-"\t\t\t\t\t\t\t\t\t</h6>\n"
-"\t\t\t\t\t\t\t\t</div>\n"
-"\t\t\t\t\t\t\t</div>\n"
-"\t\t\t\t\t\t\t<div class=\"span2\">\n"
-"\t\t\t\t\t\t\t\t<div class=\"ac stat-block\" style=\"margin-bottom:0\">\n"
-"\t\t\t\t\t\t\t\t\t<h3>\n"
-"\t\t\t\t\t\t\t\t\t\t%page%\n"
-"\t\t\t\t\t\t\t\t\t</h3>\n"
-"\t\t\t\t\t\t\t\t\t<h6 class=\"stat-heading\">\n"
-"\t\t\t\t\t\t\t\t\t\tPage Number\n"
-"\t\t\t\t\t\t\t\t\t</h6>\n"
-"\t\t\t\t\t\t\t\t</div>\n"
-"\t\t\t\t\t\t\t</div>\n"
-"\t\t\t\t\t\t\t<div class=\"span2\">\n"
-"\t\t\t\t\t\t\t\t<div class=\"ac stat-block\" style=\"margin-bottom:0\">\n"
-"\t\t\t\t\t\t\t\t\t<h3>\n"
-"\t\t\t\t\t\t\t\t\t\t%pages%\n"
-"\t\t\t\t\t\t\t\t\t</h3>\n"
-"\t\t\t\t\t\t\t\t\t<h6 class=\"stat-heading\">\n"
-"\t\t\t\t\t\t\t\t\t\tTotal Pages\n"
-"\t\t\t\t\t\t\t\t\t</h6>\n"
-"\t\t\t\t\t\t\t\t</div>\n"
-"\t\t\t\t\t\t\t</div>"
-msgstr ""
-
 #: View/Users/index.ctp:83
 msgid "Disabled"
 msgstr "Disabilitato"
@@ -758,7 +724,7 @@ msgstr "Azioni permesse e negate"
 
 #: View/Users/view.ctp:148
 msgid "user %s"
-msgstr "user %s"
+msgstr "utente %s"
 
 #: webroot/test.php:75
 msgid "Debug setting does not allow access to this url."

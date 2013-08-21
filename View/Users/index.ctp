@@ -27,13 +27,13 @@
 						</div>
 							<?php
 						echo $this->Paginator->counter(array(
-							'format' => __d('authake','<div class="span2">
+							'format' => '<div class="span2">
 								<div class="ac stat-block" style="margin-bottom:0">
 									<h3>
 										%current%
 									</h3>
 									<h6 class="stat-heading">
-										Total Users
+										Utenti totali
 									</h6>
 								</div>
 							</div>
@@ -43,7 +43,7 @@
 										%page%
 									</h3>
 									<h6 class="stat-heading">
-										Page Number
+										Pagina
 									</h6>
 								</div>
 							</div>
@@ -53,10 +53,10 @@
 										%pages%
 									</h3>
 									<h6 class="stat-heading">
-										Total Pages
+										Pagine totali
 									</h6>
 								</div>
-							</div>')
+							</div>'
 							));
 							?>
 					</div>

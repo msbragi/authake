@@ -56,8 +56,22 @@ $up = null;
 							<td><?php
 							echo str_replace(' or ', '<br/>', $rule['Rule']['action']);
 							?></td>
-							<td>
+							<td class='actions'>
 								<div class="btn-group">
+								<?php 
+									$down = @$rules[$k+1]['Rule']['id'];
+									if ($up) {
+										echo $this->Html->link('<i class="icon-arrow-up"></i> Up', '/authake/rules/swap/'.$rule['Rule']['id'].'/'.$up, array('class' => 'btn btn-mini', 'escape' => false));
+									} else {
+										echo $this->Html->link('&nbsp;', '#', array('class' => 'btn btn-mini disabled', 'escape' => false));
+									}
+									if($down) {
+										echo $this->Html->link('<i class="icon-arrow-down"></i> Down', '/authake/rules/swap/'.$rule['Rule']['id'].'/'.$down, array('class' => 'btn btn-mini', 'escape' => false));
+									} else {
+										echo $this->Html->link('&nbsp;', '#', array('class' => 'btn btn-mini disabled', 'escape' => false));
+									}
+									$up = $rule['Rule']['id'];
+								?>
 									<a class="btn btn-mini dropdown-toggle" data-toggle="dropdown"
 										href="#"> <i class="icon-cog"> </i> <span class="caret"> </span>
 									</a>
@@ -82,24 +96,7 @@ $up = null;
 											rel="nofollow"> <i class="icon-trash"> </i> Delete
 										</a>
 										</li>
-										<?php
-
-										if ($up) {
-				                                       echo '<li>'.$this->Htmlbis->iconlink('arrow_up', __d('authake','Move up'), array('action'=>'up', $rule['Rule']['id'], $up)).'</li>';
-				                                   } else {
-				                                       echo '<li>'.$this->Htmlbis->iconlink('empty', '', array('action'=>'')).'</li>';
-				                                   }
-				                                   $up = $rule['Rule']['id'];
-
-				                                   $down = $rules[$k+1]['Rule']['id'];
-				                                   if ($down>1) {
-				                                       echo '<li>'.$this->Htmlbis->iconlink('arrow_down', __d('authake','Move down'), array('action'=>'up', $rule['Rule']['id'], $down)).'</li>';
-				                                   } else {
-				                                       echo '<li>'.$this->Htmlbis->iconlink('empty', '', array('action'=>'')).'</li>';
-				                                   }
-
-							}
-							?>
+										<?php }	?>
 									</ul>
 								</div>
 							</td>
@@ -116,5 +113,6 @@ $up = null;
 <script>
 $(function() {
 	$("a.tip").tooltip();
+	$("td.actions a.btn").css({'width': '45px', 'margin-right': '3px'});
 });
 </script>

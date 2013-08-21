@@ -122,19 +122,18 @@ class RulesController extends AuthakeAppController {
 		$this->redirect(array('action'=>'index'));
 	}
 
-	function up($id1, $id2) {// swap order of two rules
-
-		if ($id1 != 1 && $id2 != 1)
-		{
+	function swap($id1, $id2) {// swap order of two rules
+		if ($id1 != 1 && $id2 != 1) {
 			$r1 = $this->Rule->findById($id1);
-			$r2 = $this->Rule->findById($id2);//            pr(array($r1,$r2));
+			$r2 = $this->Rule->findById($id2);
+			//            pr(array($r1,$r2));
 			$order = $r1['Rule']['order'];
 			$r1['Rule']['order'] = $r2['Rule']['order'];
-			$r2['Rule']['order'] = $order;//            pr(array($r1,$r2));
+			$r2['Rule']['order'] = $order;
+			//            pr(array($r1,$r2));
 			$this->Rule->save($r1);
 			$this->Rule->save($r2);
 		}
-
 		$this->redirect(array('action'=>'index'));
 	}
 }

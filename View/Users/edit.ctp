@@ -31,7 +31,7 @@
 							<?php echo $this->Form->input('name', array('type' => 'text', 'label'=>array('text'=>__d('authake','Name'),'class'=>'control-label'),'style'=>'width: 15em;', 'between'=>'<div class="controls">', 'after'=>'</div>'));?>
 						</div>
 						<div class="string control-group stringish" id="Group">
-							<?php echo $this->Form->input('Group', array('label'=>array('text'=>__d('authake','In groups Press \'Control\' for multi-selection'),'class'=>'control-label'),'style'=>'width: 15em;', 'between'=>'<div class="controls">', 'after'=>'</div>', 'multiple' => 'checkbox'));?>
+							<?php echo $this->Form->input('Group', array('label'=>array('text'=>__d('authake','In groups Press \'Control\' for multi-selection'),'class'=>'control-label'),'style'=>'width: 15em;', 'between'=>'<div class="controls">', 'after'=>'</div>', 'multiple' => true));?>
 						</div>
 						<div class="string control-group stringish" id="Email">
 							<?php echo $this->Form->input('email', array('label'=>array('text'=>__d('authake','Email'),'class'=>'control-label'),'size'=>'40', 'between'=>'<div class="controls">', 'after'=>'<span class="help-inline">User\'s email address. Choose a real one. Confirmation goes to this email.</span></div>'));?>
