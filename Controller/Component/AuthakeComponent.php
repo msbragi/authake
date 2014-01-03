@@ -134,6 +134,11 @@ class AuthakeComponent extends Component {
 		// get action path
 		$path = $this->cleanUrl($controller->request->params);
 
+		// check if 'pass' param included value and store it for returning after login
+		if(isset($controller->request->params['pass'][0])) {
+			$previousRecordId =  $controller->request->params['pass'][0];
+		}
+
 		// get login action
 		$loginAction = $this->cleanUrl(Configure::read('Authake.loginAction'));
 
@@ -148,7 +153,12 @@ class AuthakeComponent extends Component {
 					echo __d('authake','Your session expired');
 					die();
 				} else {
-					$this->setPreviousUrl($path);
+					// check for previous record id via 'pass' parameter
+					if(isset($previousRecordId)) {
+						$this->setPreviousUrl($path, $previousRecordId);
+					} else {
+						$this->setPreviousUrl($path);
+					}
 					$controller->redirect($loginAction);
 				}
 			}
@@ -166,7 +176,11 @@ class AuthakeComponent extends Component {
 				$fw = $this->_forward ? $this->_forward : Configure::read('Authake.defaultDeniedAction');
 				$controller->redirect($fw);
 			} else { // if denied & not loggued, propose to log in
-				$this->setPreviousUrl($path);
+				if(isset($previousRecordId)) {
+					$this->setPreviousUrl($path, $previousRecordId);
+				} else {
+					$this->setPreviousUrl($path);
+				}
 				$this->Session->setFlash(sprintf(__d('authake','You have to log in to access %s'), $path), 'warning');
 				$controller->redirect($loginAction);
 			}
@@ -177,10 +191,14 @@ class AuthakeComponent extends Component {
 	/**
 	 * API functions
 	 */
-	function setPreviousUrl($url) {
+	function setPreviousUrl($url, $recordId = null) {
 		$loginAction = $this->cleanUrl(Configure::read('Authake.loginAction'));
 		if(!$this->RequestHandler->isAjax() && ($url != $loginAction)) {
-			$this->Session->write('Authake.previousUrl', $url);
+			if($recordId) {
+				$this->Session->write('Authake.previousUrl', $url . '/' . $recordId);
+			} else {
+				$this->Session->write('Authake.previousUrl', $url);
+			}
 		}
 	}
 
