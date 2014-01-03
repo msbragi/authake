@@ -119,4 +119,3 @@ CREATE TABLE IF NOT EXISTS `authake_settings` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-INSERT INTO `authake_settings` VALUES ('1', 'Default settings', '{\"baseUrl\":\"http:\\/\\/yourhostname\\/subdirectory\\/\",\"service\":\"CakePHP\",\"loginAction\":\"\\/authake\\/user\\/login\",\"loggedAction\":\"\\/\",\"sessionTimeout\":\"1800\",\"defaultDeniedAction\":\"\\/authake\\/user\\/denied\",\"rulesCacheTimeout\":\"300\",\"systemEmail\":\"no-reply@example.com\",\"systemReplyTo\":\"no-reply@example.com\",\"passwordVerify\":\"1\",\"registration\":\"0\",\"defaultGroup\":\"\",\"useDefaultLayout\":\"1\",\"useEmailAsUsername\":\"0\"}', '2013-04-11 16:48:43', '2013-12-18 19:08:26');
