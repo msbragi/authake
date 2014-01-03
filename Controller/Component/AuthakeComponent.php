@@ -132,6 +132,10 @@ class AuthakeComponent extends Component {
 		$this->startup(&$controller, $setting_id);
 
 		// get action path
+		// check if 'pass' param included value and store it for returning after login
+		if(isset($controller->request->params['pass'][0])) {
+			$previousRecordId =  $controller->request->params['pass'][0];
+		}
 		$path = $this->cleanUrl($controller->request->params);
 
 		// check if 'pass' param included value and store it for returning after login
