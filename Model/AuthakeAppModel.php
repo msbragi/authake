@@ -20,7 +20,7 @@
 */
 App::uses('AppModel', 'Model');
 class AuthakeAppModel extends AppModel {
-	var $useDbConfig = "authake2";
+	var $useDbConfig = "default";
 	var $actsAs = array('Containable');
 	var $recursive = 1;
 
